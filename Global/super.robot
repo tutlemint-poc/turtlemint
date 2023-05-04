@@ -1,4 +1,6 @@
 *** Settings ***
 Library           SeleniumLibrary
-Library           String
 Resource          global_variables.robot
+Resource          ../Keywords/health_policy.resource
+Resource          ../Keywords/common.resource
+Library           String
