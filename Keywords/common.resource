@@ -42,4 +42,5 @@ UpdatedynamicXpath
 Select checkboxes
     [Arguments]    ${checkboxes_name}
     ${updated_value}    UpdatedynamicXpath    ${checkboxes.list}    ${checkboxes_name}
+    Wait Until Element Is Visible    ${updated_value}
     Click Element    ${updated_value}

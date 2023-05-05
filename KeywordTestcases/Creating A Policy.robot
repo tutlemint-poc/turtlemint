@@ -7,3 +7,4 @@ TC01 Creating Health Policy
     Launch Browser and Navigate to URL    ${url}    gc
     Select type of insurance
     Select gender    Male
+    Who would you like to insure    Self
