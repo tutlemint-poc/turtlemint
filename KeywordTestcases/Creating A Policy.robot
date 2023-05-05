@@ -6,4 +6,4 @@ Resource          ../Global/global_variables.robot
 TC01 Creating Health Policy
     Launch Browser and Navigate to URL    ${url}    gc
     Select type of insurance
-    Select gender
+    Select gender    Male

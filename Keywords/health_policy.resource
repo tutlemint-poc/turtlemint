@@ -9,8 +9,10 @@ Select type of insurance
     Click Element    ${button.getaquote}
 
 Select gender
-    Wait Until Element Is Visible    ${radiobuttons.male}
-    Click Element    ${radiobuttons.male}
+    [Arguments]    ${gender}
+    ${updatedgender}    UpdatedynamicXpath    ${radiobuttons.gender}    ${gender}
+    Wait Until Element Is Visible    ${updatedgender}
+    Click Element    ${updatedgender}
 
 Who would you like to insure
     [Arguments]    ${insurer_name}
