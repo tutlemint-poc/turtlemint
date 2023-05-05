@@ -12,7 +12,6 @@ Launch Browser and Navigate to URL
     ${session}    Run Keyword And Return Status    Get Session Id
     Run Keyword If    ${session}==True    Go To    ${url}
     ...    ELSE    Launch Browser    ${browser_name}    ${url}
-    Comment    Maximize Browser Window
     Maximize Browser Window
 
 Click on next
@@ -39,3 +38,8 @@ UpdatedynamicXpath
     [Arguments]    ${locator}    ${text}
     ${new_locator}    Replace String    ${locator}    replaceText    ${text}
     [Return]    ${new_locator}
+
+Select checkboxes
+    [Arguments]    ${checkboxes_name}
+    ${updated_value}    UpdatedynamicXpath    ${checkboxes.list}    ${checkboxes_name}
+    Click Element    ${updated_value}

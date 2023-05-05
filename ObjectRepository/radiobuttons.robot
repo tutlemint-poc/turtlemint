@@ -2,5 +2,6 @@
 Resource          ../Global/super.robot
 
 *** Variables ***
-${radiobutton.male}    //div[text()='Male ']
+${radiobuttons.male}    //div[text()='Male ']
 ${radiobuttons.health}    //label[@class='select-type-health-desk']
+${radiobuttons.no}    //label[@id='preDiseaseStatusNoLabel']//span[@class='outer']
