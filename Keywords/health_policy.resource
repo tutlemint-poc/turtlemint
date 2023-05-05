@@ -9,27 +9,31 @@ Select type of insurance
     Click Element    ${button.getaquote}
 
 Select gender
-    Wait Until Element Is Visible    ${radiobutton.male}
-    Click Element    ${radiobutton.male}
+    [Arguments]    ${gender}
+    ${updatedgender}    UpdatedynamicXpath    ${radiobuttons.gender}    ${gender}
+    Wait Until Element Is Visible    ${updatedgender}
+    Click Element    ${updatedgender}
 
 Who would you like to insure
-    Wait Until Element Is Not Visible    ${pageheader.insurelistpage}
-    Sleep    3s
-    Click Element    ${checkboxes.self}
-    Click Element    ${checkboxes.wife}
+    [Arguments]    ${insurer_name}
+    Select Checkboxes    ${insurer_name}
 
 What is their age
     [Arguments]    ${dropdown_id}    ${serach_age}
     Search and Select from dropdown    ${dropdown_id}    ${serach_age}
 
+Are you planning to have kids
+    Wait Until Element Is Visible    ${radiobuttons.no}
+    Click Element    ${radiobuttons.no}
+
 Select policy
 
-Save your quote now
-
 Does any of the member have any disease
-
-What is your income bracket
 
 What is your pincode
 
 Your prefered hospital
+
+What is your income bracket
+
+Save your quote now
