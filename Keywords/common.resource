@@ -1,5 +1,7 @@
 *** Settings ***
 Resource          ../Global/super.robot
+Library           ../Library/CustomLibrary.py
+Library     CustomLibrary
 
 *** Keywords ***
 Launch Browser
@@ -17,9 +19,8 @@ Launch Browser and Navigate to URL
 Click on Next button
     Click Element    ${common.button.next}
 
-Click on back
-    Wait Until Element Is Visible    ${buttons.back}
-    Click Element    ${buttons.back}
+Click on back button
+    Click Element    ${common.button.back}
 
 Select from dropdown
     [Arguments]    ${dropdown_labelname}    ${dropdown_value}
@@ -39,3 +40,13 @@ Select Checkbox
     [Arguments]    ${checkbox_name}
     ${loc_checkbox}    Update Dynamic Xpath    ${common.checkbox}    ${checkbox_name}
     Click Element    ${loc_checkbox}
+
+Read TestData From Excel
+    [Arguments]    ${testcaseid}    ${sheet_name}
+    [Documentation]    Read TestData from excel file for required data.
+    ...
+    ...    Example:
+    ...    Read TestData From Excel TC_01 SheetName
+    ${test_prerequisite_data}   CustomLibrary.Get Ms Excel Row Values Into Dictionary Based On Key    ${TESTDATA_FOLDER}/TestData.xlsx    ${testcaseid}    ${sheet_name}
+    Set Global Variable    ${test_prerequisite_data}
+    [Return]    ${test_prerequisite_data}

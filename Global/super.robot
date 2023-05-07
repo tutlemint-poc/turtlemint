@@ -7,3 +7,4 @@ Resource          ../ObjectRepository/or_home.robot
 Resource          ../Keywords/health_policy.resource
 Resource          ../ObjectRepository/or_healthprofile.robot
 Library           Collections
+Library           ../Library/CustomLibrary.py

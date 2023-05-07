@@ -5,7 +5,14 @@ Resource          ../Global/global_variables.robot
 *** Test Cases ***
 TC01 Creating Health Policy
     Launch Browser and Navigate to URL    ${URL}    ${BROWSER_NAME}
-    Select type of insurance    Health
-    Select gender    Male
-    Who would you like to insure    Self;Wife
-    What is their age    Self-42 years;Wife-40 years
+    ${policy_data}=    Read TestData From Excel    TC_01    policy
+    Select type of insurance    ${policy_data}[insurance type]
+    Select gender    ${policy_data}[gender]
+    Who would you like to insure    ${policy_data}[members to be insured]
+    What is their age    ${policy_data}[age]
+    Are you planning to have kids    ${policy_data}[planning to have kids]
+    Does any of the member have any disease    ${policy_data}[member have any disease]
+    What is your pincode    ${policy_data}[pincode]
+    Your prefered hospital
+    What is your income bracket    ${policy_data}[income bracket]
+    Save your quote now    shyam    1234567890    s@gmail.com
