@@ -15,4 +15,6 @@ TC01 Creating Health Policy
     What is your pincode    ${policy_data}[pincode]
     Your prefered hospital
     What is your income bracket    ${policy_data}[income bracket]
-    Save your quote now    shyam    1234567890    s@gmail.com
+    ${name}=    Generate Random String    10
+    Save your quote now    ${name}    ${policy_data}[mobile]    ${policy_data}[email]
+    
