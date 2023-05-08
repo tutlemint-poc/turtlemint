@@ -1,7 +1,7 @@
 *** Settings ***
 Resource          ../Global/super.robot
 Library           ../Library/CustomLibrary.py
-Library     CustomLibrary
+Library           CustomLibrary
 
 *** Keywords ***
 Launch Browser
@@ -47,6 +47,6 @@ Read TestData From Excel
     ...
     ...    Example:
     ...    Read TestData From Excel TC_01 SheetName
-    ${test_prerequisite_data}   CustomLibrary.Get Ms Excel Row Values Into Dictionary Based On Key    ${TESTDATA_FOLDER}/TestData.xlsx    ${testcaseid}    ${sheet_name}
+    ${test_prerequisite_data}    CustomLibrary.Get Ms Excel Row Values Into Dictionary Based On Key    ${TESTDATA_FOLDER}/TestData.xlsx    ${testcaseid}    ${sheet_name}
     Set Global Variable    ${test_prerequisite_data}
     [Return]    ${test_prerequisite_data}

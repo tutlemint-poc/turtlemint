@@ -38,11 +38,13 @@ What is their age
     Click on Next button
 
 Are you planning to have kids
-    [Arguments]    ${option}
+    [Arguments]    ${option}    ${planning_kids}=${EMPTY}
     Wait Until Element Is Visible    ${health.pageheader.areyouplanningto}    ${SHORT_WAIT}    Are you planning to have kids ? page is \ not displayed
     ${loc_option}=    Update Dynamic Xpath    ${health.radiobtn.option}    ${option}
-    Run Keyword If    '${option}'=='Yes'    Click Element    ${loc_option}
-    Run Keyword If    '${option}'=='No'    Click on Next button
+    Click Element    ${loc_option}
+    Run Keyword If    '${option}'=='Yes'    When are you planning to have a child     ${planning_kids}
+    ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${health.pageheader.areyouplanningto}    ${SHORT_WAIT}
+    Run Keyword If    ${status}==True    Click on Next button
 
 Does any of the member have any disease
     [Arguments]    ${option}
@@ -76,3 +78,6 @@ Save your quote now
     Click on Next button
 
 Select policy
+
+When are you planning to have a child
+    [Arguments]    ${planning_option}

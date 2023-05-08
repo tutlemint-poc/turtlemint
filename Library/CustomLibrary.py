@@ -9,6 +9,9 @@ import calendar
 import time
 import json
 import datetime
+import random as r
+import string
+import names
 from PIL import Image,ImageChops
 from datetime import timedelta, date
 from appdirs import user_data_dir
@@ -140,6 +143,18 @@ class CustomLibrary(object):
             testdata=testdata.replace("UNIQUE",unique_string)
             testdata=testdata.replace("Unique",unique_string)
             testdata=testdata.replace("unique",unique_string)
+            if testdata != None and "RANDOM_EMAILID" in testdata:
+                    email=self.get_email_address()
+                    testdata=testdata.replace("RANDOM_EMAILID",email)
+            if testdata != None and "RANDOM_PHONENUMBER" in testdata:
+                    phno=self.get_phone_number()
+                    testdata=testdata.replace("RANDOM_PHONENUMBER",phno)
+            if testdata != None and "RANDOM_NAME" in testdata:
+                    fullname=self.get_rnd_full_name()
+                    testdata=testdata.replace("RANDOM_NAME",fullname)
+            if testdata != None and "RANDOM_NAME_FEMALE" in testdata:
+                    fullname=self.get_rnd_full_name('female')
+                    testdata=testdata.replace("RANDOM_NAME",fullname) 
             return testdata
 
         def validate_the_sheet_in_ms_excel_file(self,filepath,sheetName):
@@ -188,14 +203,30 @@ class CustomLibrary(object):
             action.move_by_offset(0,10)
             action.perform()
             time.sleep(2)
-            
-        def giveName(self):
-            print("Shyam")
-def main():
-    CustomLibrary.giveName('hi')
-    dictVar1={}
-    
-    dictVar1=CustomLibrary.get_ms_excel_row_values_into_dictionary_based_on_key('${TESTDATA_FOLDER}/TestData.xlsx','TC_001','PolicyDetails')
-    print(dictVar1)
-if __name__== "__main__":
-    main()
+
+        def get_rnd_first_name(self):
+                firstname = names.get_first_name()
+                print (firstname)
+                return firstname
+
+        def get_rnd_last_name(self):
+                lastname = names.get_last_name()
+                print (lastname)
+                return lastname
+        def get_rnd_full_name(self,gender='male'):
+                fullname=names.get_full_name(gender)
+                print (fullname)
+                return fullname
+
+        def get_phone_number(self):
+                ph_no=""
+                for i in range(1, 10):
+                    ph_no+= str(r.randint(0, 9))
+                print (ph_no)
+                return ph_no
+
+        def get_email_address(self):                
+                res = ''.join(r.choice(string.ascii_letters) for x in range(10))
+                res="AutoTest" + res + "@gmail.com"
+                print (res)
+                return res
