@@ -6,15 +6,14 @@ Resource          ../Global/global_variables.robot
 TC01 Creating Health Policy
     Launch Browser and Navigate to URL    ${URL}    ${BROWSER_NAME}
     ${policy_data}=    Read TestData From Excel    TC_01    policy
-    Select type of insurance    ${policy_data}[insurance type]
+    Select type of insurance    ${policy_data}[insurance_type]
     Select gender    ${policy_data}[gender]
-    Who would you like to insure    ${policy_data}[members to be insured]
+    Who would you like to insure    ${policy_data}[members_to_be_ insured]
     What is their age    ${policy_data}[age]
-    Are you planning to have kids    ${policy_data}[planning to have kids]
-    Does any of the member have any disease    ${policy_data}[member have any disease]
+    Are you planning to have kids    ${policy_data}[planning_to_have kids]
+    Comment    When are you planning to have a child    ${policy_data}[when_are_you_planning_kids]
+    Does any of the member have any disease    ${policy_data}[member_have_any_disease]
     What is your pincode    ${policy_data}[pincode]
     Your prefered hospital
-    What is your income bracket    ${policy_data}[income bracket]
-    ${name}=    Generate Random String    10
-    Save your quote now    ${name}    ${policy_data}[mobile]    ${policy_data}[email]
-    
+    What is your income bracket    ${policy_data}[income_bracket]
+    Save your quote now    ${policy_data}[name]    ${policy_data}[mobile]    ${policy_data}[email]

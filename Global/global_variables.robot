@@ -4,4 +4,4 @@ ${SHORT_WAIT}     3s
 ${LONG_WAIT}      60S
 ${MEDIUM_WAIT}    30s
 ${BROWSER_NAME}    gc
-${TESTDATA_FOLDER}    ${EXECDIR}/turtlemint/TestData
+${TESTDATA_FOLDER}    ${EXECDIR}/TestData

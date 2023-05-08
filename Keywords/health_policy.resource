@@ -42,20 +42,32 @@ Are you planning to have kids
     Wait Until Element Is Visible    ${health.pageheader.areyouplanningto}    ${SHORT_WAIT}    Are you planning to have kids ? page is \ not displayed
     ${loc_option}=    Update Dynamic Xpath    ${health.radiobtn.option}    ${option}
     Click Element    ${loc_option}
-    Run Keyword If    '${option}'=='Yes'    When are you planning to have a child     ${planning_kids}
+    Run Keyword If    '${option}'=='Yes'    When are you planning to have a child    ${planning_kids}
     ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${health.pageheader.areyouplanningto}    ${SHORT_WAIT}
     Run Keyword If    ${status}==True    Click on Next button
 
+When are you planning to have a child
+    [Arguments]    ${planning_option}
+    Wait Until Element Is Visible    ${health.header.whenareyouplanningtohaveachild}    ${MEDIUM_WAIT}    W'hen are you planning to have kids page is not diplayed.
+    Run Keyword If    '${planning_option}'=='IN1YR'    Click Element    ${health.radio.within1year}
+    Run Keyword If    '${planning_option}'=='IN3YRS'    Click Element    ${health.radio.1-3years}
+    Run Keyword If    '${planning_option}'=='MORETHAN3YRS'    Click Element    ${health.radio.morethan3years}
+    ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${health.header.whenareyouplanningtohaveachild}    ${SHORT_WAIT}
+    Run Keyword If    ${status}==True    Click on Next button
+
 Does any of the member have any disease
-    [Arguments]    ${option}
+    [Arguments]    ${option}    ${pincode}=${EMPTY}
     Wait Until Element Is Visible    ${health.pageheader.doesanyofthemembers}
     ${loc_option}=    Update Dynamic Xpath    ${health.radiobtn.option}    ${option}
-    Run Keyword If    '${option}'=='Yes'    Click Element    ${loc_option}
-    Run Keyword If    '${option}'=='No'    Click on Next button
+    Click Element    ${loc_option}
+    Run Keyword If    '${option}'=='Yes'    Wait Until Element Is Visible    ${health.pageheader.doesanyofthemembers}
+    ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${health.pageheader.doesanyofthemembers}    ${SHORT_WAIT}
+    Sleep    3s
+    Run Keyword If    ${status}==True    Click on Next button
 
 What is your pincode
     [Arguments]    ${pincode}
-    Wait Until Element Is Visible    ${health.pageheader.whatisyourpincode}
+    Wait Until Element Is Visible    ${health.pageheader.whatisyourpincode}    ${SHORT_WAIT}
     Input Text    ${health.text.pincode}    ${pincode}
     Click on Next button
 
@@ -66,8 +78,12 @@ Your prefered hospital
 What is your income bracket
     [Arguments]    ${income}
     Wait Until Element Is Visible    ${health.pageheader.whatisyourincomebracket}
-    ${loc_income}=    Update Dynamic Xpath    ${health.radiobtn.income}    ${income}
-    Click Element    ${loc_income}
+    Run Keyword If    '${income}'=='LESSTHAN2.5LAKHS'    Click Element    ${health.radio.incomelessthan2.5}
+    Run Keyword If    '${income}'=='UPTO5LAKHS'    Click Element    ${health.radio.incomeupto5lakhs}
+    Run Keyword If    '${income}'=='UPTO10LAKHS'    Click Element    ${health.radio.incomeupto10lakhs}
+    Run Keyword If    '${income}'=='MORETHAN10LAKHS'    Click Element    ${health.radio.incomemorethan10lakhs}
+    ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    \    ${SHORT_WAIT}
+    Run Keyword If    ${status}==True    Click on Next button
 
 Save your quote now
     [Arguments]    ${name}    ${mobile}    ${email}
@@ -78,6 +94,3 @@ Save your quote now
     Click on Next button
 
 Select policy
-
-When are you planning to have a child
-    [Arguments]    ${planning_option}
