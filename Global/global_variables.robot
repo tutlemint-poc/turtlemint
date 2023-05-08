@@ -1,5 +1,7 @@
 *** Variables ***
-${url}            https://www.turtlemint.com/
-${short_wait}     3s
-${long_wait}      60S
-${medium_wait}    30s
+${URL}            https://www.turtlemint.com/
+${SHORT_WAIT}     3s
+${LONG_WAIT}      60S
+${MEDIUM_WAIT}    30s
+${BROWSER_NAME}    gc
+${TESTDATA_FOLDER}    ${EXECDIR}/TestData

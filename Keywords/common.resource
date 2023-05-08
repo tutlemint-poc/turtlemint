@@ -1,5 +1,7 @@
 *** Settings ***
 Resource          ../Global/super.robot
+Library           ../Library/CustomLibrary.py
+Library           CustomLibrary
 
 *** Keywords ***
 Launch Browser
@@ -14,33 +16,37 @@ Launch Browser and Navigate to URL
     ...    ELSE    Launch Browser    ${browser_name}    ${url}
     Maximize Browser Window
 
-Click on next
-    Wait Until Element Is Visible    ${buttons.next}
-    Click Element    ${buttons.next}
+Click on Next button
+    Click Element    ${common.button.next}
 
-Click on back
-    Wait Until Element Is Visible    ${buttons.back}
-    Click Element    ${buttons.back}
+Click on back button
+    Click Element    ${common.button.back}
 
-Search and Select from dropdown
-    [Arguments]    ${dropdown_id}    ${serach_age}
-    ${updateddropdown_name}    UpdatedynamicXpath    ${dropdown.name}    ${dropdown_id}
-    Wait Until Element Is Visible    ${updateddropdown_name}
-    Click Element    ${updateddropdown_name}
-    ${updateddropdown_search}    UpdatedynamicXpath    ${dropdown.search}    ${dropdown_id}
-    Click Element    ${updateddropdown_search}
-    Input Text    ${updateddropdown_search}    ${serach_age}
-    ${updateddropdown.searchitem}    Format String    ${dropdown.searchitem}    ${dropdown_id}    ${serach_age}
-    Wait Until Element Is Visible    ${updateddropdown.searchitem}
-    Click Element    ${updateddropdown.searchitem}
+Select from dropdown
+    [Arguments]    ${dropdown_labelname}    ${dropdown_value}
+    ${loc_dropdown_name}    Update Dynamic Xpath    ${home.dropdown}    ${dropdown_labelname}
+    Click Element    ${loc_dropdown_name}
+    Comment    Wait for the drop down to open
+    Wait Until Element Is Visible    ${home.dropdown.open}    ${MEDIUM_WAIT}    Drop down is not displayed
+    ${loc_dropdown_value}    Update Dynamic Xpath    ${home.dropdown.value}    ${dropdown_value}
+    Click Element    ${loc_dropdown_value}
 
-UpdatedynamicXpath
+Update Dynamic Xpath
     [Arguments]    ${locator}    ${text}
     ${new_locator}    Replace String    ${locator}    replaceText    ${text}
     [Return]    ${new_locator}
 
-Select checkboxes
-    [Arguments]    ${checkboxes_name}
-    ${updated_value}    UpdatedynamicXpath    ${checkboxes.list}    ${checkboxes_name}
-    Wait Until Element Is Visible    ${updated_value}
-    Click Element    ${updated_value}
+Select Checkbox
+    [Arguments]    ${checkbox_name}
+    ${loc_checkbox}    Update Dynamic Xpath    ${common.checkbox}    ${checkbox_name}
+    Click Element    ${loc_checkbox}
+
+Read TestData From Excel
+    [Arguments]    ${testcaseid}    ${sheet_name}
+    [Documentation]    Read TestData from excel file for required data.
+    ...
+    ...    Example:
+    ...    Read TestData From Excel TC_01 SheetName
+    ${test_prerequisite_data}    CustomLibrary.Get Ms Excel Row Values Into Dictionary Based On Key    ${TESTDATA_FOLDER}/TestData.xlsx    ${testcaseid}    ${sheet_name}
+    Set Global Variable    ${test_prerequisite_data}
+    [Return]    ${test_prerequisite_data}
