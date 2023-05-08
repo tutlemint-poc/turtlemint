@@ -9,19 +9,9 @@ Select type of insurance
     Run Keyword If    '${insurance_type}'=='Life'    Click Element    ${home.radio.life}
     ${loc_insurance_type}=    Run Keyword If    '${insurance_type}'=='Life'    Set Variable    ${home.radio.life}
     Click Element    ${home.button.getquote}
-    [Arguments]    ${insurance_type}
-    Wait Until Element Is Visible    ${home.radio.health}    ${LONG_WAIT}    Turtle Mint home page is not displayed
-    Run Keyword If    '${insurance_type}'=='Health'    Click Element    ${home.radio.health}
-    Run Keyword If    '${insurance_type}'=='Life'    Click Element    ${home.radio.life}
-    ${loc_insurance_type}=    Run Keyword If    '${insurance_type}'=='Life'    Set Variable    ${home.radio.life}
-    Click Element    ${home.button.getquote}
 
 Select gender
     [Arguments]    ${gender}
-    [Documentation]    Screen Tell us about yourself, you are a...
-    Wait Until Element Is Visible    ${health.pageheader.gender}    ${MEDIUM_WAIT}    Gender page is not displayed
-    ${loc_gender}=    Update Dynamic Xpath    ${health.radiobtn.gender}    ${gender}
-    Click Element    ${loc_gender}
     [Documentation]    Screen Tell us about yourself, you are a...
     Wait Until Element Is Visible    ${health.pageheader.gender}    ${MEDIUM_WAIT}    Gender page is not displayed
     ${loc_gender}=    Update Dynamic Xpath    ${health.radiobtn.gender}    ${gender}
@@ -35,24 +25,8 @@ Who would you like to insure
         Select Checkbox    ${member}
     END
     Click on Next button
-    [Arguments]    ${members_to_be_insured}    # enter members by semi colon separator. Self;Wife;Father;Mother;Son;Daughter;Husband
-    @{list_members}    Split String    ${members_to_be_insured}    separator=;
-    Wait Until Element Is Visible    ${health.pageheader.whotoinsure}    ${MEDIUM_WAIT}    Who would you like to get insured? page is not displayed
-    FOR    ${member}    IN    @{list_members}
-        Select Checkbox    ${member}
-    END
-    Click on Next button
 
 What is their age
-    [Arguments]    ${relations_n_age}    # Self-35 years;Wife-33 years
-    @{list_members}    Split String    ${relations_n_age}    separator=;
-    FOR    ${member}    IN    @{list_members}
-        @{age}    Split String    ${member}    separator=-
-        ${dropdown_labelname}=    Get From List    ${age}    0
-        ${dropdown_value}=    Get From List    ${age}    1
-        Select from dropdown    ${dropdown_labelname}    ${dropdown_value}
-    END
-    Click on Next button
     [Arguments]    ${relations_n_age}    # Self-35 years;Wife-33 years
     @{list_members}    Split String    ${relations_n_age}    separator=;
     FOR    ${member}    IN    @{list_members}
@@ -74,11 +48,7 @@ Are you planning to have kids
 
 When are you planning to have a child
     [Arguments]    ${planning_option}
-<<<<<<< HEAD
-    Wait Until Element Is Visible    ${health.header.whenareyouplanningtohaveachild}    ${MEDIUM_WAIT}    W'hen are you planning to have kids page is not diplayed.
-=======
     Wait Until Element Is Visible    ${health.header.whenareyouplanningtohaveachild}    ${MEDIUM_WAIT}    When are you planning to have kids page is not diplayed.
->>>>>>> ravishyam
     Run Keyword If    '${planning_option}'=='IN1YR'    Click Element    ${health.radio.within1year}
     Run Keyword If    '${planning_option}'=='IN3YRS'    Click Element    ${health.radio.1-3years}
     Run Keyword If    '${planning_option}'=='MORETHAN3YRS'    Click Element    ${health.radio.morethan3years}
@@ -92,10 +62,6 @@ Does any of the member have any disease
     Click Element    ${loc_option}
     Run Keyword If    '${option}'=='Yes'    Wait Until Element Is Visible    ${health.pageheader.doesanyofthemembers}
     ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${health.pageheader.doesanyofthemembers}    ${SHORT_WAIT}
-<<<<<<< HEAD
-    Sleep    3s
-=======
->>>>>>> ravishyam
     Run Keyword If    ${status}==True    Click on Next button
 
 What is your pincode
@@ -128,10 +94,6 @@ Save your quote now
     Input Text    ${health.text.email}    ${email}
     Click on Next button
 
-Select policy
-<<<<<<< HEAD
-=======
-
 Create a Health Policy
     [Arguments]    ${policy_data}
     Select type of insurance    ${policy_data}[insurance_type]
@@ -147,4 +109,3 @@ Create a Health Policy
     Your prefered hospital
     What is your income bracket    ${policy_data}[income_bracket]
     Save your quote now    ${policy_data}[name]    ${policy_data}[mobile]    ${policy_data}[email]
->>>>>>> ravishyam
