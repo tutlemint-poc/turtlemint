@@ -73,8 +73,6 @@ What is your pincode
 Your prefered hospital
     Wait Until Element Is Visible    ${health.pageheader.yourpreffered}
     Click on Next button
-    Wait Until Element Is Visible    ${health.pageheader.yourpreffered}
-    Click on Next button
 
 What is your income bracket
     [Arguments]    ${income}

@@ -18,10 +18,7 @@ ${health.header.whenareyouplanningtohaveachild}    //p[@class='heading' and cont
 ${health.radio.within1year}    //span[@class='ng-binding' and contains(text(),'Within 1 year')]
 ${health.radio.1-3years}    //span[@class='ng-binding' and contains(text(),'1-3 Years')]
 ${health.radio.morethan3years}    //span[@class='ng-binding' and contains(text(),'More than 3 Years')]
-<<<<<<< HEAD
 ${health.pageheader.does any of the members have any disease}    //p[@class='heading' and contains(text(),'Does any of the members have any disease')]
-=======
->>>>>>> ravishyam
 ${health.radio.incomelessthan2.5}    //span[@class='ng-binding' and text()='Less than Rs 2.5 lakhs']
 ${health.radio.incomeupto5lakhs}    //span[@class='ng-binding' and text()='Rs 2.5 to 5 lakhs']
 ${health.radio.incomeupto10lakhs}    //span[@class='ng-binding' and text()='Rs 5 to 10 lakhs']

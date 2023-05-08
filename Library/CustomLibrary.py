@@ -197,6 +197,12 @@ class CustomLibrary(object):
             else:
                WebDriverWait(self._driver, 60).until(EC.element_to_be_clickable((By.ID, locator)))
 
+        def wait_until_element_displayed(self,locator):
+            if locator.startswith("//") or locator.startswith("(//"):
+               WebDriverWait(self._driver, 60).until(EC.presence_of_element_located((By.XPATH, locator)))
+            else:
+               WebDriverWait(self._driver, 60).until(EC.presence_of_element_located((By.ID, locator)))
+
         def mouse_move_by_offset(self):
             """ Mouse move to 0,0 """
             action = ActionChains(self._driver) 
@@ -230,3 +236,47 @@ class CustomLibrary(object):
                 res="AutoTest" + res + "@gmail.com"
                 print (res)
                 return res
+
+
+        def get_health_policy_results_data(self):
+                loc_policy_results = "//div[contains(@data-ng-repeat,'result in healthResultObj')]"
+                loc_single_policy= "//div[contains(@data-ng-repeat,'result in healthResultObj')][{}]"
+                loc_policy_client = "//div[contains(@class,'clients-logo')]/img"
+                loc_policy_plan_name = "//span[contains(@class,'planName')]"
+                loc_policy_cover_amount = "//span[@class='bold ng-binding' and contains(@data-auto,'coverAmount')]"
+                loc_policy_total_premium = "//span[contains(@data-auto,'totalPremium')]"
+                loc_policy_cliam_settled = "//span[contains(@class,'bold ng-binding') and contains(@data-auto,'speedOfClaim')]"
+                self.wait_until_element_displayed(loc_policy_results)
+                items = len(self._driver.find_elements_by_xpath(loc_policy_results))
+                print(items)
+                for counter in range(1,items+1):
+                        loc_single_policy_updated = loc_single_policy.format(counter)
+                        #get client name
+                        loc_policy_client_updated = loc_single_policy_updated + loc_policy_client
+                        ele = self._driver.find_element_by_xpath(loc_policy_client_updated)
+                        client_name = ele.get_attribute("alt")
+                        #get plan name
+                        loc_policy_plan_name_updated = loc_single_policy_updated + loc_policy_plan_name
+                        ele = self._driver.find_element_by_xpath(loc_policy_plan_name_updated)
+                        plan_name = ele.get_attribute("tooltip")
+                        #get cover amount
+                        loc_policy_cover_amount_updated = loc_single_policy_updated + loc_policy_cover_amount
+                        ele = self._driver.find_element_by_xpath(loc_policy_cover_amount_updated)
+                        cover_amount = ele.text
+                        cover_amount = cover_amount.replace("₹","").replace("Lakhs","")
+                        cover_amount = float(cover_amount)
+                        cover_amount = cover_amount*100000
+                        #get total premium
+                        loc_policy_total_premium_updated = loc_single_policy_updated + loc_policy_total_premium
+                        ele = self._driver.find_element_by_xpath(loc_policy_total_premium_updated)
+                        total_premium = ele.text
+                        total_premium= total_premium.replace("₹","").replace(",","")
+                        #get claim settled
+                        loc_policy_cliam_settled_updated = loc_single_policy_updated + loc_policy_cliam_settled
+                        ele = self._driver.find_element_by_xpath(loc_policy_cliam_settled_updated)
+                        claim_settled = ele.text
+                        claim_settled=claim_settled.replace("%","")
+                        claim_settled = float(claim_settled)
+                        print(client_name + "\t" + plan_name + "\t" + total_premium)
+                        print(cover_amount)
+                        print(claim_settled)
