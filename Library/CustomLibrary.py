@@ -154,7 +154,7 @@ class CustomLibrary(object):
                     testdata=testdata.replace("RANDOM_NAME",fullname)
             if testdata != None and "RANDOM_NAME_FEMALE" in testdata:
                     fullname=self.get_rnd_full_name('female')
-                    testdata=testdata.replace("RANDOM_NAME",fullname) 
+                    testdata=testdata.replace("RANDOM_NAME_FEMALE",fullname) 
             return testdata
 
         def validate_the_sheet_in_ms_excel_file(self,filepath,sheetName):
@@ -220,7 +220,7 @@ class CustomLibrary(object):
 
         def get_phone_number(self):
                 ph_no=""
-                for i in range(1, 10):
+                for i in range(1, 11):
                     ph_no+= str(r.randint(0, 9))
                 print (ph_no)
                 return ph_no
