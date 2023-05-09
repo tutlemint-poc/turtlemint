@@ -9,3 +9,4 @@ Resource          ../ObjectRepository/or_healthprofile.robot
 Library           Collections
 Library           ../Library/CustomLibrary.py
 Resource          ../ObjectRepository/or_healthresults.robot
+Resource          ../Keywords/health_results.robot

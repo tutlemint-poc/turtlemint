@@ -8,4 +8,10 @@ TC01 Creating Health Policy
     ${policy_data}=    Read TestData From Excel    TC_01    policy
     Create a Health Policy    ${policy_data}
     Sleep    10s
-    get_health_policy_results_data
+    ${policy_results}    CustomLibrary.Get Health Policy Results
+    Check the cover amount in policy results    500000    ${policy_results}
+    Check the Filtered Insurance details are displayed    Manipal Cigna Health Insurance    ${policy_results}
+
+sample
+    ${code}=    calculate_percentage    ${16081}    ${500000}
+    Log    ${code}
