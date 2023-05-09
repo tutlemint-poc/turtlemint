@@ -11,4 +11,3 @@ Resource          ../ObjectRepository/or_healthprofile.robot
 Resource          ../Keywords/health_policy_results.resource
 Resource          ../ObjectRepository/or_healthresults.robot
 Resource          ../ObjectRepository/or_healthresults.robot
-Resource          ../Keywords/health_results.robot
