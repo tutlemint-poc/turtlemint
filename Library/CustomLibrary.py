@@ -238,7 +238,7 @@ class CustomLibrary(object):
                 return res
 
 
-        def get_health_policy_results_data(self):
+        def get_health_policy_results(self):
                 loc_policy_results = "//div[contains(@data-ng-repeat,'result in healthResultObj')]"
                 loc_single_policy= "//div[contains(@data-ng-repeat,'result in healthResultObj')][{}]"
                 loc_policy_client = "//div[contains(@class,'clients-logo')]/img"
@@ -249,6 +249,7 @@ class CustomLibrary(object):
                 self.wait_until_element_displayed(loc_policy_results)
                 items = len(self._driver.find_elements_by_xpath(loc_policy_results))
                 print(items)
+                dict_policies={}
                 for counter in range(1,items+1):
                         loc_single_policy_updated = loc_single_policy.format(counter)
                         #get client name
@@ -265,18 +266,33 @@ class CustomLibrary(object):
                         cover_amount = ele.text
                         cover_amount = cover_amount.replace("₹","").replace("Lakhs","")
                         cover_amount = float(cover_amount)
-                        cover_amount = cover_amount*100000
+                        cover_amount = int(cover_amount*100000)
                         #get total premium
                         loc_policy_total_premium_updated = loc_single_policy_updated + loc_policy_total_premium
                         ele = self._driver.find_element_by_xpath(loc_policy_total_premium_updated)
                         total_premium = ele.text
-                        total_premium= total_premium.replace("₹","").replace(",","")
+                        total_premium= total_premium.replace("₹","").replace(",","").strip()
+                        total_premium=int(total_premium)
                         #get claim settled
                         loc_policy_cliam_settled_updated = loc_single_policy_updated + loc_policy_cliam_settled
                         ele = self._driver.find_element_by_xpath(loc_policy_cliam_settled_updated)
                         claim_settled = ele.text
                         claim_settled=claim_settled.replace("%","")
-                        claim_settled = float(claim_settled)
-                        print(client_name + "\t" + plan_name + "\t" + total_premium)
-                        print(cover_amount)
-                        print(claim_settled)
+                        claim_settled = float(claim_settled)                        
+                        dict_policy = {'client_name':client_name, 'plan_name':plan_name,'cover_amount':cover_amount,'total_premium':total_premium,'claim_settled':claim_settled}
+                        print(dict_policy)
+                        dict_policies[counter]=dict_policy
+                return dict_policies
+
+        def get_company_code(self,dict_company,value):
+                key_list = list(dict_company.keys())
+                val_list = list(dict_company.values())
+                position = val_list.index(value)
+                key = key_list[position]
+                return key
+        
+        def calculate_percentage(self,num1,num2):
+                print(num1 / num2)
+                print((num1 / num2) * 100)
+                percentage = round((num1 / num2) * 100)
+                return percentage
