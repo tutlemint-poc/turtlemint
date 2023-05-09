@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.9.9 on win32)" generated="20230509 12:37:32.148" rpa="false" schemaversion="3">
-<suite id="s1" name="Turtlemint" source="D:\poc\turtlemint">
-<suite id="s1-s1" name="KeywordTestcases" source="D:\poc\turtlemint\KeywordTestcases">
-<suite id="s1-s1-s1" name="Creating A Policy" source="D:\poc\turtlemint\KeywordTestcases\Creating A Policy.robot">
+<robot generator="Robot 6.0.2 (Python 3.9.9 on win32)" generated="20230509 12:37:30.915" rpa="false" schemaversion="3">
+<suite id="s1" name="Turtlemint" source="d:\poc\turtlemint">
+<suite id="s1-s1" name="KeywordTestcases" source="d:\poc\turtlemint\KeywordTestcases">
+<suite id="s1-s1-s1" name="Creating A Policy" source="d:\poc\turtlemint\KeywordTestcases\Creating A Policy.robot">
 <test id="s1-s1-s1-t1" name="TC01 Creating Health Policy" line="6">
 <kw name="Launch Browser and Navigate to URL" library="common">
 <arg>${URL}</arg>
@@ -13,12 +13,12 @@
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
 <kw name="Get Session Id" library="SeleniumLibrary">
 <doc>Returns the currently active browser session id.</doc>
-<msg timestamp="20230509 12:37:32.762" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg timestamp="20230509 12:37:32.762" level="FAIL">No browser is open.</msg>
-<status status="FAIL" starttime="20230509 12:37:32.761" endtime="20230509 12:37:32.766"/>
+<msg timestamp="20230509 12:37:31.282" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20230509 12:37:31.285" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20230509 12:37:31.281" endtime="20230509 12:37:31.287"/>
 </kw>
-<msg timestamp="20230509 12:37:32.767" level="INFO">${session} = False</msg>
-<status status="PASS" starttime="20230509 12:37:32.761" endtime="20230509 12:37:32.768"/>
+<msg timestamp="20230509 12:37:31.287" level="INFO">${session} = False</msg>
+<status status="PASS" starttime="20230509 12:37:31.281" endtime="20230509 12:37:31.287"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>${session}==True</arg>
@@ -42,10 +42,10 @@
 <arg>${url}</arg>
 <arg>gc</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230509 12:37:32.773" level="INFO">Opening browser 'gc' to base url 'https://www.turtlemint.com/'.</msg>
-<status status="PASS" starttime="20230509 12:37:32.772" endtime="20230509 12:37:37.185"/>
+<msg timestamp="20230509 12:37:31.291" level="INFO">Opening browser 'gc' to base url 'https://www.turtlemint.com/'.</msg>
+<status status="PASS" starttime="20230509 12:37:31.290" endtime="20230509 12:37:35.913"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:32.770" endtime="20230509 12:37:37.185"/>
+<status status="PASS" starttime="20230509 12:37:31.289" endtime="20230509 12:37:35.914"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${browser_name}'=='Firefox' or '${browser_name}'=='firefox' or '${browser_name}'=='ff'</arg>
@@ -53,17 +53,17 @@
 <arg>${url}</arg>
 <arg>Firefox</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230509 12:37:37.186" endtime="20230509 12:37:37.187"/>
+<status status="PASS" starttime="20230509 12:37:35.915" endtime="20230509 12:37:35.916"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:32.769" endtime="20230509 12:37:37.187"/>
+<status status="PASS" starttime="20230509 12:37:31.289" endtime="20230509 12:37:35.917"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:32.768" endtime="20230509 12:37:37.187"/>
+<status status="PASS" starttime="20230509 12:37:31.288" endtime="20230509 12:37:35.917"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230509 12:37:37.187" endtime="20230509 12:37:37.386"/>
+<status status="PASS" starttime="20230509 12:37:35.917" endtime="20230509 12:37:36.043"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:32.760" endtime="20230509 12:37:37.386"/>
+<status status="PASS" starttime="20230509 12:37:31.280" endtime="20230509 12:37:36.044"/>
 </kw>
 <kw name="Read TestData From Excel" library="common">
 <var>${policy_data}</var>
@@ -76,17 +76,17 @@
 <arg>${testcaseid}</arg>
 <arg>${sheet_name}</arg>
 <doc>Returns the dictionary of values given row in the MS Excel file</doc>
-<msg timestamp="20230509 12:37:37.486" level="INFO">${test_prerequisite_data} = {'TCName': 'TC_01', 'insurance_type': 'Health', 'gender': 'Male', 'members_to_be_ insured': 'Self;Wife', 'age': 'Self-42 years;Wife-40 years', 'planning_to_have kids': 'No', 'when_are_you_planning_kid...</msg>
-<status status="PASS" starttime="20230509 12:37:37.389" endtime="20230509 12:37:37.486"/>
+<msg timestamp="20230509 12:37:36.126" level="INFO">${test_prerequisite_data} = {'TCName': 'TC_01', 'insurance_type': 'Health', 'gender': 'Male', 'members_to_be_ insured': 'Self;Wife', 'age': 'Self-42 years;Wife-40 years', 'planning_to_have kids': 'No', 'when_are_you_planning_kid...</msg>
+<status status="PASS" starttime="20230509 12:37:36.046" endtime="20230509 12:37:36.126"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${test_prerequisite_data}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20230509 12:37:37.487" level="INFO">${test_prerequisite_data} = {'TCName': 'TC_01', 'insurance_type': 'Health', 'gender': 'Male', 'members_to_be_ insured': 'Self;Wife', 'age': 'Self-42 years;Wife-40 years', 'planning_to_have kids': 'No', 'when_are_you_planning_kid...</msg>
-<status status="PASS" starttime="20230509 12:37:37.487" endtime="20230509 12:37:37.488"/>
+<msg timestamp="20230509 12:37:36.127" level="INFO">${test_prerequisite_data} = {'TCName': 'TC_01', 'insurance_type': 'Health', 'gender': 'Male', 'members_to_be_ insured': 'Self;Wife', 'age': 'Self-42 years;Wife-40 years', 'planning_to_have kids': 'No', 'when_are_you_planning_kid...</msg>
+<status status="PASS" starttime="20230509 12:37:36.127" endtime="20230509 12:37:36.127"/>
 </kw>
-<msg timestamp="20230509 12:37:37.488" level="INFO">${policy_data} = {'TCName': 'TC_01', 'insurance_type': 'Health', 'gender': 'Male', 'members_to_be_ insured': 'Self;Wife', 'age': 'Self-42 years;Wife-40 years', 'planning_to_have kids': 'No', 'when_are_you_planning_kid...</msg>
-<status status="PASS" starttime="20230509 12:37:37.387" endtime="20230509 12:37:37.489"/>
+<msg timestamp="20230509 12:37:36.128" level="INFO">${policy_data} = {'TCName': 'TC_01', 'insurance_type': 'Health', 'gender': 'Male', 'members_to_be_ insured': 'Self;Wife', 'age': 'Self-42 years;Wife-40 years', 'planning_to_have kids': 'No', 'when_are_you_planning_kid...</msg>
+<status status="PASS" starttime="20230509 12:37:36.045" endtime="20230509 12:37:36.128"/>
 </kw>
 <kw name="Create a Health Policy" library="health_policy">
 <arg>${policy_data}</arg>
@@ -97,7 +97,7 @@
 <arg>${LONG_WAIT}</arg>
 <arg>Turtle Mint home page is not displayed</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:37.493" endtime="20230509 12:37:37.523"/>
+<status status="PASS" starttime="20230509 12:37:36.132" endtime="20230509 12:37:36.161"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${insurance_type}'=='Health'</arg>
@@ -107,17 +107,17 @@
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${home.radio.health}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:37.525" level="INFO">Clicking element '//label[@class='select-type-health-desk']'.</msg>
-<status status="PASS" starttime="20230509 12:37:37.524" endtime="20230509 12:37:37.586"/>
+<msg timestamp="20230509 12:37:36.162" level="INFO">Clicking element '//label[@class='select-type-health-desk']'.</msg>
+<status status="PASS" starttime="20230509 12:37:36.161" endtime="20230509 12:37:36.211"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:37.523" endtime="20230509 12:37:37.586"/>
+<status status="PASS" starttime="20230509 12:37:36.161" endtime="20230509 12:37:36.212"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${insurance_type}'=='Life'</arg>
 <arg>Click Element</arg>
 <arg>${home.radio.life}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230509 12:37:37.587" endtime="20230509 12:37:37.588"/>
+<status status="PASS" starttime="20230509 12:37:36.212" endtime="20230509 12:37:36.213"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${loc_insurance_type}</var>
@@ -125,16 +125,16 @@
 <arg>Set Variable</arg>
 <arg>${home.radio.life}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<msg timestamp="20230509 12:37:37.588" level="INFO">${loc_insurance_type} = None</msg>
-<status status="PASS" starttime="20230509 12:37:37.588" endtime="20230509 12:37:37.588"/>
+<msg timestamp="20230509 12:37:36.215" level="INFO">${loc_insurance_type} = None</msg>
+<status status="PASS" starttime="20230509 12:37:36.214" endtime="20230509 12:37:36.217"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${home.button.getquote}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:37.590" level="INFO">Clicking element '//div[@class="main-banner-txt"]/..//button[text()='Get a Quote']'.</msg>
-<status status="PASS" starttime="20230509 12:37:37.589" endtime="20230509 12:37:38.519"/>
+<msg timestamp="20230509 12:37:36.218" level="INFO">Clicking element '//div[@class="main-banner-txt"]/..//button[text()='Get a Quote']'.</msg>
+<status status="PASS" starttime="20230509 12:37:36.217" endtime="20230509 12:37:36.693"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:37.492" endtime="20230509 12:37:38.519"/>
+<status status="PASS" starttime="20230509 12:37:36.131" endtime="20230509 12:37:36.693"/>
 </kw>
 <kw name="Select gender" library="health_policy">
 <arg>${policy_data}[gender]</arg>
@@ -144,7 +144,7 @@
 <arg>${MEDIUM_WAIT}</arg>
 <arg>Gender page is not displayed</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:38.520" endtime="20230509 12:37:39.255"/>
+<status status="PASS" starttime="20230509 12:37:36.694" endtime="20230509 12:37:37.311"/>
 </kw>
 <kw name="Update Dynamic Xpath" library="common">
 <var>${loc_gender}</var>
@@ -156,19 +156,19 @@
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:37:39.256" level="INFO">${new_locator} = //div[text()='Male ']</msg>
-<status status="PASS" starttime="20230509 12:37:39.256" endtime="20230509 12:37:39.256"/>
+<msg timestamp="20230509 12:37:37.318" level="INFO">${new_locator} = //div[text()='Male ']</msg>
+<status status="PASS" starttime="20230509 12:37:37.316" endtime="20230509 12:37:37.319"/>
 </kw>
-<msg timestamp="20230509 12:37:39.257" level="INFO">${loc_gender} = //div[text()='Male ']</msg>
-<status status="PASS" starttime="20230509 12:37:39.255" endtime="20230509 12:37:39.257"/>
+<msg timestamp="20230509 12:37:37.320" level="INFO">${loc_gender} = //div[text()='Male ']</msg>
+<status status="PASS" starttime="20230509 12:37:37.313" endtime="20230509 12:37:37.321"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_gender}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:39.258" level="INFO">Clicking element '//div[text()='Male ']'.</msg>
-<status status="PASS" starttime="20230509 12:37:39.257" endtime="20230509 12:37:39.338"/>
+<msg timestamp="20230509 12:37:37.325" level="INFO">Clicking element '//div[text()='Male ']'.</msg>
+<status status="PASS" starttime="20230509 12:37:37.322" endtime="20230509 12:37:37.542"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:38.519" endtime="20230509 12:37:39.339"/>
+<status status="PASS" starttime="20230509 12:37:36.694" endtime="20230509 12:37:37.542"/>
 </kw>
 <kw name="Who would you like to insure" library="health_policy">
 <arg>${policy_data}[members_to_be_ insured]</arg>
@@ -177,15 +177,15 @@
 <arg>${members_to_be_insured}</arg>
 <arg>separator=;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20230509 12:37:39.340" level="INFO">@{list_members} = [ Self | Wife ]</msg>
-<status status="PASS" starttime="20230509 12:37:39.340" endtime="20230509 12:37:39.340"/>
+<msg timestamp="20230509 12:37:37.544" level="INFO">@{list_members} = [ Self | Wife ]</msg>
+<status status="PASS" starttime="20230509 12:37:37.544" endtime="20230509 12:37:37.544"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${health.pageheader.whotoinsure}</arg>
 <arg>${MEDIUM_WAIT}</arg>
 <arg>Who would you like to get insured? page is not displayed</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:39.340" endtime="20230509 12:37:39.591"/>
+<status status="PASS" starttime="20230509 12:37:37.545" endtime="20230509 12:37:37.786"/>
 </kw>
 <for flavor="IN">
 <var>${member}</var>
@@ -204,21 +204,21 @@
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:37:39.593" level="INFO">${new_locator} = //label[contains(text(),'Self')]</msg>
-<status status="PASS" starttime="20230509 12:37:39.593" endtime="20230509 12:37:39.593"/>
+<msg timestamp="20230509 12:37:37.789" level="INFO">${new_locator} = //label[contains(text(),'Self')]</msg>
+<status status="PASS" starttime="20230509 12:37:37.788" endtime="20230509 12:37:37.789"/>
 </kw>
-<msg timestamp="20230509 12:37:39.594" level="INFO">${loc_checkbox} = //label[contains(text(),'Self')]</msg>
-<status status="PASS" starttime="20230509 12:37:39.592" endtime="20230509 12:37:39.594"/>
+<msg timestamp="20230509 12:37:37.789" level="INFO">${loc_checkbox} = //label[contains(text(),'Self')]</msg>
+<status status="PASS" starttime="20230509 12:37:37.787" endtime="20230509 12:37:37.789"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_checkbox}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:39.596" level="INFO">Clicking element '//label[contains(text(),'Self')]'.</msg>
-<status status="PASS" starttime="20230509 12:37:39.595" endtime="20230509 12:37:39.658"/>
+<msg timestamp="20230509 12:37:37.790" level="INFO">Clicking element '//label[contains(text(),'Self')]'.</msg>
+<status status="PASS" starttime="20230509 12:37:37.790" endtime="20230509 12:37:37.860"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:39.592" endtime="20230509 12:37:39.658"/>
+<status status="PASS" starttime="20230509 12:37:37.787" endtime="20230509 12:37:37.861"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:39.591" endtime="20230509 12:37:39.658"/>
+<status status="PASS" starttime="20230509 12:37:37.787" endtime="20230509 12:37:37.861"/>
 </iter>
 <iter>
 <var name="${member}">Wife</var>
@@ -234,34 +234,34 @@
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:37:39.660" level="INFO">${new_locator} = //label[contains(text(),'Wife')]</msg>
-<status status="PASS" starttime="20230509 12:37:39.659" endtime="20230509 12:37:39.660"/>
+<msg timestamp="20230509 12:37:37.868" level="INFO">${new_locator} = //label[contains(text(),'Wife')]</msg>
+<status status="PASS" starttime="20230509 12:37:37.867" endtime="20230509 12:37:37.868"/>
 </kw>
-<msg timestamp="20230509 12:37:39.660" level="INFO">${loc_checkbox} = //label[contains(text(),'Wife')]</msg>
-<status status="PASS" starttime="20230509 12:37:39.659" endtime="20230509 12:37:39.661"/>
+<msg timestamp="20230509 12:37:37.869" level="INFO">${loc_checkbox} = //label[contains(text(),'Wife')]</msg>
+<status status="PASS" starttime="20230509 12:37:37.865" endtime="20230509 12:37:37.869"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_checkbox}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:39.662" level="INFO">Clicking element '//label[contains(text(),'Wife')]'.</msg>
-<status status="PASS" starttime="20230509 12:37:39.661" endtime="20230509 12:37:39.718"/>
+<msg timestamp="20230509 12:37:37.870" level="INFO">Clicking element '//label[contains(text(),'Wife')]'.</msg>
+<status status="PASS" starttime="20230509 12:37:37.869" endtime="20230509 12:37:37.927"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:39.659" endtime="20230509 12:37:39.718"/>
+<status status="PASS" starttime="20230509 12:37:37.864" endtime="20230509 12:37:37.927"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:39.658" endtime="20230509 12:37:39.718"/>
+<status status="PASS" starttime="20230509 12:37:37.863" endtime="20230509 12:37:37.927"/>
 </iter>
-<status status="PASS" starttime="20230509 12:37:39.591" endtime="20230509 12:37:39.719"/>
+<status status="PASS" starttime="20230509 12:37:37.786" endtime="20230509 12:37:37.928"/>
 </for>
 <kw name="Click on Next button" library="common">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${common.button.next}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:39.720" level="INFO">Clicking element '//div[@id='Next']'.</msg>
-<status status="PASS" starttime="20230509 12:37:39.719" endtime="20230509 12:37:39.905"/>
+<msg timestamp="20230509 12:37:37.929" level="INFO">Clicking element '//div[@id='Next']'.</msg>
+<status status="PASS" starttime="20230509 12:37:37.928" endtime="20230509 12:37:38.144"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:39.719" endtime="20230509 12:37:39.905"/>
+<status status="PASS" starttime="20230509 12:37:37.928" endtime="20230509 12:37:38.144"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:39.339" endtime="20230509 12:37:39.906"/>
+<status status="PASS" starttime="20230509 12:37:37.543" endtime="20230509 12:37:38.145"/>
 </kw>
 <kw name="What is their age" library="health_policy">
 <arg>${policy_data}[age]</arg>
@@ -270,8 +270,8 @@
 <arg>${relations_n_age}</arg>
 <arg>separator=;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20230509 12:37:39.908" level="INFO">@{list_members} = [ Self-42 years | Wife-40 years ]</msg>
-<status status="PASS" starttime="20230509 12:37:39.907" endtime="20230509 12:37:39.909"/>
+<msg timestamp="20230509 12:37:38.148" level="INFO">@{list_members} = [ Self-42 years | Wife-40 years ]</msg>
+<status status="PASS" starttime="20230509 12:37:38.147" endtime="20230509 12:37:38.148"/>
 </kw>
 <for flavor="IN">
 <var>${member}</var>
@@ -283,24 +283,24 @@
 <arg>${member}</arg>
 <arg>separator=-</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20230509 12:37:39.911" level="INFO">@{age} = [ Self | 42 years ]</msg>
-<status status="PASS" starttime="20230509 12:37:39.910" endtime="20230509 12:37:39.912"/>
+<msg timestamp="20230509 12:37:38.150" level="INFO">@{age} = [ Self | 42 years ]</msg>
+<status status="PASS" starttime="20230509 12:37:38.149" endtime="20230509 12:37:38.150"/>
 </kw>
 <kw name="Get From List" library="Collections">
 <var>${dropdown_labelname}</var>
 <arg>${age}</arg>
 <arg>0</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<msg timestamp="20230509 12:37:39.914" level="INFO">${dropdown_labelname} = Self</msg>
-<status status="PASS" starttime="20230509 12:37:39.913" endtime="20230509 12:37:39.914"/>
+<msg timestamp="20230509 12:37:38.150" level="INFO">${dropdown_labelname} = Self</msg>
+<status status="PASS" starttime="20230509 12:37:38.150" endtime="20230509 12:37:38.150"/>
 </kw>
 <kw name="Get From List" library="Collections">
 <var>${dropdown_value}</var>
 <arg>${age}</arg>
 <arg>1</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<msg timestamp="20230509 12:37:39.915" level="INFO">${dropdown_value} = 42 years</msg>
-<status status="PASS" starttime="20230509 12:37:39.914" endtime="20230509 12:37:39.916"/>
+<msg timestamp="20230509 12:37:38.152" level="INFO">${dropdown_value} = 42 years</msg>
+<status status="PASS" starttime="20230509 12:37:38.152" endtime="20230509 12:37:38.152"/>
 </kw>
 <kw name="Select from dropdown" library="common">
 <arg>${dropdown_labelname}</arg>
@@ -315,29 +315,29 @@
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:37:39.920" level="INFO">${new_locator} = xpath=(//div[text()='Self']/..//button)[1]</msg>
-<status status="PASS" starttime="20230509 12:37:39.919" endtime="20230509 12:37:39.920"/>
+<msg timestamp="20230509 12:37:38.154" level="INFO">${new_locator} = xpath=(//div[text()='Self']/..//button)[1]</msg>
+<status status="PASS" starttime="20230509 12:37:38.154" endtime="20230509 12:37:38.154"/>
 </kw>
-<msg timestamp="20230509 12:37:39.921" level="INFO">${loc_dropdown_name} = xpath=(//div[text()='Self']/..//button)[1]</msg>
-<status status="PASS" starttime="20230509 12:37:39.918" endtime="20230509 12:37:39.921"/>
+<msg timestamp="20230509 12:37:38.154" level="INFO">${loc_dropdown_name} = xpath=(//div[text()='Self']/..//button)[1]</msg>
+<status status="PASS" starttime="20230509 12:37:38.152" endtime="20230509 12:37:38.154"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_dropdown_name}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:39.922" level="INFO">Clicking element 'xpath=(//div[text()='Self']/..//button)[1]'.</msg>
-<status status="PASS" starttime="20230509 12:37:39.921" endtime="20230509 12:37:39.969"/>
+<msg timestamp="20230509 12:37:38.155" level="INFO">Clicking element 'xpath=(//div[text()='Self']/..//button)[1]'.</msg>
+<status status="PASS" starttime="20230509 12:37:38.155" endtime="20230509 12:37:38.245"/>
 </kw>
 <kw name="Comment" library="BuiltIn">
 <arg>Wait for the drop down to open</arg>
 <doc>Displays the given messages in the log file as keyword arguments.</doc>
-<status status="PASS" starttime="20230509 12:37:39.969" endtime="20230509 12:37:39.970"/>
+<status status="PASS" starttime="20230509 12:37:38.246" endtime="20230509 12:37:38.247"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${home.dropdown.open}</arg>
 <arg>${MEDIUM_WAIT}</arg>
 <arg>Drop down is not displayed</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:39.970" endtime="20230509 12:37:39.990"/>
+<status status="PASS" starttime="20230509 12:37:38.248" endtime="20230509 12:37:38.270"/>
 </kw>
 <kw name="Update Dynamic Xpath" library="common">
 <var>${loc_dropdown_value}</var>
@@ -349,21 +349,21 @@
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:37:39.991" level="INFO">${new_locator} = //div[@class="dropdown open"]//a[text()='42 years']</msg>
-<status status="PASS" starttime="20230509 12:37:39.990" endtime="20230509 12:37:39.991"/>
+<msg timestamp="20230509 12:37:38.271" level="INFO">${new_locator} = //div[@class="dropdown open"]//a[text()='42 years']</msg>
+<status status="PASS" starttime="20230509 12:37:38.271" endtime="20230509 12:37:38.271"/>
 </kw>
-<msg timestamp="20230509 12:37:39.991" level="INFO">${loc_dropdown_value} = //div[@class="dropdown open"]//a[text()='42 years']</msg>
-<status status="PASS" starttime="20230509 12:37:39.990" endtime="20230509 12:37:39.992"/>
+<msg timestamp="20230509 12:37:38.271" level="INFO">${loc_dropdown_value} = //div[@class="dropdown open"]//a[text()='42 years']</msg>
+<status status="PASS" starttime="20230509 12:37:38.270" endtime="20230509 12:37:38.271"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_dropdown_value}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:39.992" level="INFO">Clicking element '//div[@class="dropdown open"]//a[text()='42 years']'.</msg>
-<status status="PASS" starttime="20230509 12:37:39.992" endtime="20230509 12:37:40.060"/>
+<msg timestamp="20230509 12:37:38.272" level="INFO">Clicking element '//div[@class="dropdown open"]//a[text()='42 years']'.</msg>
+<status status="PASS" starttime="20230509 12:37:38.272" endtime="20230509 12:37:38.359"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:39.916" endtime="20230509 12:37:40.060"/>
+<status status="PASS" starttime="20230509 12:37:38.152" endtime="20230509 12:37:38.359"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:39.910" endtime="20230509 12:37:40.060"/>
+<status status="PASS" starttime="20230509 12:37:38.149" endtime="20230509 12:37:38.359"/>
 </iter>
 <iter>
 <var name="${member}">Wife-40 years</var>
@@ -372,24 +372,24 @@
 <arg>${member}</arg>
 <arg>separator=-</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20230509 12:37:40.061" level="INFO">@{age} = [ Wife | 40 years ]</msg>
-<status status="PASS" starttime="20230509 12:37:40.061" endtime="20230509 12:37:40.062"/>
+<msg timestamp="20230509 12:37:38.360" level="INFO">@{age} = [ Wife | 40 years ]</msg>
+<status status="PASS" starttime="20230509 12:37:38.360" endtime="20230509 12:37:38.360"/>
 </kw>
 <kw name="Get From List" library="Collections">
 <var>${dropdown_labelname}</var>
 <arg>${age}</arg>
 <arg>0</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<msg timestamp="20230509 12:37:40.066" level="INFO">${dropdown_labelname} = Wife</msg>
-<status status="PASS" starttime="20230509 12:37:40.063" endtime="20230509 12:37:40.066"/>
+<msg timestamp="20230509 12:37:38.362" level="INFO">${dropdown_labelname} = Wife</msg>
+<status status="PASS" starttime="20230509 12:37:38.361" endtime="20230509 12:37:38.362"/>
 </kw>
 <kw name="Get From List" library="Collections">
 <var>${dropdown_value}</var>
 <arg>${age}</arg>
 <arg>1</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<msg timestamp="20230509 12:37:40.067" level="INFO">${dropdown_value} = 40 years</msg>
-<status status="PASS" starttime="20230509 12:37:40.066" endtime="20230509 12:37:40.067"/>
+<msg timestamp="20230509 12:37:38.362" level="INFO">${dropdown_value} = 40 years</msg>
+<status status="PASS" starttime="20230509 12:37:38.362" endtime="20230509 12:37:38.364"/>
 </kw>
 <kw name="Select from dropdown" library="common">
 <arg>${dropdown_labelname}</arg>
@@ -404,29 +404,29 @@
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:37:40.070" level="INFO">${new_locator} = xpath=(//div[text()='Wife']/..//button)[1]</msg>
-<status status="PASS" starttime="20230509 12:37:40.069" endtime="20230509 12:37:40.070"/>
+<msg timestamp="20230509 12:37:38.367" level="INFO">${new_locator} = xpath=(//div[text()='Wife']/..//button)[1]</msg>
+<status status="PASS" starttime="20230509 12:37:38.366" endtime="20230509 12:37:38.367"/>
 </kw>
-<msg timestamp="20230509 12:37:40.070" level="INFO">${loc_dropdown_name} = xpath=(//div[text()='Wife']/..//button)[1]</msg>
-<status status="PASS" starttime="20230509 12:37:40.068" endtime="20230509 12:37:40.070"/>
+<msg timestamp="20230509 12:37:38.367" level="INFO">${loc_dropdown_name} = xpath=(//div[text()='Wife']/..//button)[1]</msg>
+<status status="PASS" starttime="20230509 12:37:38.365" endtime="20230509 12:37:38.367"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_dropdown_name}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:40.071" level="INFO">Clicking element 'xpath=(//div[text()='Wife']/..//button)[1]'.</msg>
-<status status="PASS" starttime="20230509 12:37:40.070" endtime="20230509 12:37:40.115"/>
+<msg timestamp="20230509 12:37:38.368" level="INFO">Clicking element 'xpath=(//div[text()='Wife']/..//button)[1]'.</msg>
+<status status="PASS" starttime="20230509 12:37:38.368" endtime="20230509 12:37:38.418"/>
 </kw>
 <kw name="Comment" library="BuiltIn">
 <arg>Wait for the drop down to open</arg>
 <doc>Displays the given messages in the log file as keyword arguments.</doc>
-<status status="PASS" starttime="20230509 12:37:40.115" endtime="20230509 12:37:40.116"/>
+<status status="PASS" starttime="20230509 12:37:38.418" endtime="20230509 12:37:38.419"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${home.dropdown.open}</arg>
 <arg>${MEDIUM_WAIT}</arg>
 <arg>Drop down is not displayed</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:40.116" endtime="20230509 12:37:40.129"/>
+<status status="PASS" starttime="20230509 12:37:38.419" endtime="20230509 12:37:38.436"/>
 </kw>
 <kw name="Update Dynamic Xpath" library="common">
 <var>${loc_dropdown_value}</var>
@@ -438,42 +438,42 @@
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:37:40.131" level="INFO">${new_locator} = //div[@class="dropdown open"]//a[text()='40 years']</msg>
-<status status="PASS" starttime="20230509 12:37:40.131" endtime="20230509 12:37:40.132"/>
+<msg timestamp="20230509 12:37:38.437" level="INFO">${new_locator} = //div[@class="dropdown open"]//a[text()='40 years']</msg>
+<status status="PASS" starttime="20230509 12:37:38.436" endtime="20230509 12:37:38.437"/>
 </kw>
-<msg timestamp="20230509 12:37:40.132" level="INFO">${loc_dropdown_value} = //div[@class="dropdown open"]//a[text()='40 years']</msg>
-<status status="PASS" starttime="20230509 12:37:40.130" endtime="20230509 12:37:40.133"/>
+<msg timestamp="20230509 12:37:38.437" level="INFO">${loc_dropdown_value} = //div[@class="dropdown open"]//a[text()='40 years']</msg>
+<status status="PASS" starttime="20230509 12:37:38.436" endtime="20230509 12:37:38.437"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_dropdown_value}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:40.134" level="INFO">Clicking element '//div[@class="dropdown open"]//a[text()='40 years']'.</msg>
-<status status="PASS" starttime="20230509 12:37:40.133" endtime="20230509 12:37:40.207"/>
+<msg timestamp="20230509 12:37:38.438" level="INFO">Clicking element '//div[@class="dropdown open"]//a[text()='40 years']'.</msg>
+<status status="PASS" starttime="20230509 12:37:38.438" endtime="20230509 12:37:38.534"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:40.067" endtime="20230509 12:37:40.207"/>
+<status status="PASS" starttime="20230509 12:37:38.364" endtime="20230509 12:37:38.535"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:40.060" endtime="20230509 12:37:40.207"/>
+<status status="PASS" starttime="20230509 12:37:38.360" endtime="20230509 12:37:38.535"/>
 </iter>
-<status status="PASS" starttime="20230509 12:37:39.909" endtime="20230509 12:37:40.207"/>
+<status status="PASS" starttime="20230509 12:37:38.149" endtime="20230509 12:37:38.535"/>
 </for>
 <kw name="Click on Next button" library="common">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${common.button.next}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:40.209" level="INFO">Clicking element '//div[@id='Next']'.</msg>
-<status status="PASS" starttime="20230509 12:37:40.208" endtime="20230509 12:37:40.299"/>
+<msg timestamp="20230509 12:37:38.536" level="INFO">Clicking element '//div[@id='Next']'.</msg>
+<status status="PASS" starttime="20230509 12:37:38.536" endtime="20230509 12:37:38.625"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:40.208" endtime="20230509 12:37:40.299"/>
+<status status="PASS" starttime="20230509 12:37:38.535" endtime="20230509 12:37:38.625"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:39.906" endtime="20230509 12:37:40.299"/>
+<status status="PASS" starttime="20230509 12:37:38.146" endtime="20230509 12:37:38.626"/>
 </kw>
 <kw name="Split String" library="String">
 <var>@{list_members}</var>
 <arg>${policy_data}[members_to_be_ insured]</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20230509 12:37:40.300" level="INFO">@{list_members} = [ Self | Wife ]</msg>
-<status status="PASS" starttime="20230509 12:37:40.299" endtime="20230509 12:37:40.301"/>
+<msg timestamp="20230509 12:37:38.626" level="INFO">@{list_members} = [ Self | Wife ]</msg>
+<status status="PASS" starttime="20230509 12:37:38.626" endtime="20230509 12:37:38.627"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${status}</var>
@@ -485,10 +485,10 @@
 <arg>${policy_data}</arg>
 <arg>when_are_you_planning_kids</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" starttime="20230509 12:37:40.302" endtime="20230509 12:37:40.302"/>
+<status status="PASS" starttime="20230509 12:37:38.628" endtime="20230509 12:37:38.629"/>
 </kw>
-<msg timestamp="20230509 12:37:40.302" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20230509 12:37:40.301" endtime="20230509 12:37:40.302"/>
+<msg timestamp="20230509 12:37:38.629" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20230509 12:37:38.627" endtime="20230509 12:37:38.630"/>
 </kw>
 <kw name="Set Variable If" library="BuiltIn">
 <var>${when_are_you_planning_kids}</var>
@@ -496,8 +496,8 @@
 <arg>${policy_data}[when_are_you_planning_kids]</arg>
 <arg>${EMPTY}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<msg timestamp="20230509 12:37:40.303" level="INFO">${when_are_you_planning_kids} = IN1YR</msg>
-<status status="PASS" starttime="20230509 12:37:40.302" endtime="20230509 12:37:40.303"/>
+<msg timestamp="20230509 12:37:38.632" level="INFO">${when_are_you_planning_kids} = IN1YR</msg>
+<status status="PASS" starttime="20230509 12:37:38.630" endtime="20230509 12:37:38.632"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'Wife' in @{list_members} or 'Husband' in @{list_members}</arg>
@@ -513,7 +513,7 @@
 <arg>${SHORT_WAIT}</arg>
 <arg>Are you planning to have kids page is not displayed</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:40.305" endtime="20230509 12:37:40.325"/>
+<status status="PASS" starttime="20230509 12:37:38.634" endtime="20230509 12:37:38.659"/>
 </kw>
 <kw name="Update Dynamic Xpath" library="common">
 <var>${loc_option}</var>
@@ -525,24 +525,24 @@
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:37:40.327" level="INFO">${new_locator} = //input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]</msg>
-<status status="PASS" starttime="20230509 12:37:40.326" endtime="20230509 12:37:40.327"/>
+<msg timestamp="20230509 12:37:38.660" level="INFO">${new_locator} = //input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]</msg>
+<status status="PASS" starttime="20230509 12:37:38.660" endtime="20230509 12:37:38.660"/>
 </kw>
-<msg timestamp="20230509 12:37:40.327" level="INFO">${loc_option} = //input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]</msg>
-<status status="PASS" starttime="20230509 12:37:40.326" endtime="20230509 12:37:40.327"/>
+<msg timestamp="20230509 12:37:38.660" level="INFO">${loc_option} = //input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]</msg>
+<status status="PASS" starttime="20230509 12:37:38.659" endtime="20230509 12:37:38.661"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_option}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:40.328" level="INFO">Clicking element '//input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]'.</msg>
-<status status="PASS" starttime="20230509 12:37:40.328" endtime="20230509 12:37:40.404"/>
+<msg timestamp="20230509 12:37:38.662" level="INFO">Clicking element '//input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]'.</msg>
+<status status="PASS" starttime="20230509 12:37:38.662" endtime="20230509 12:37:38.805"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${option}'=='Yes'</arg>
 <arg>When are you planning to have a child</arg>
 <arg>${planning_kids}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230509 12:37:40.404" endtime="20230509 12:37:40.405"/>
+<status status="PASS" starttime="20230509 12:37:38.807" endtime="20230509 12:37:38.807"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${status}</var>
@@ -554,29 +554,29 @@
 <arg>${health.pageheader.areyouplanningto}</arg>
 <arg>${SHORT_WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20230509 12:37:43.558" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-27.png"&gt;&lt;img src="selenium-screenshot-27.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230509 12:37:43.559" level="FAIL">Element '//p[@class="heading" and contains(text(),'Are you planning to have a child')]' not visible after 3 seconds.</msg>
-<status status="FAIL" starttime="20230509 12:37:40.406" endtime="20230509 12:37:43.562"/>
+<msg timestamp="20230509 12:37:41.985" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230509 12:37:41.985" level="FAIL">Element '//p[@class="heading" and contains(text(),'Are you planning to have a child')]' not visible after 3 seconds.</msg>
+<status status="FAIL" starttime="20230509 12:37:38.807" endtime="20230509 12:37:41.986"/>
 </kw>
-<msg timestamp="20230509 12:37:43.562" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20230509 12:37:40.405" endtime="20230509 12:37:43.563"/>
+<msg timestamp="20230509 12:37:41.987" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20230509 12:37:38.807" endtime="20230509 12:37:41.987"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>${status}==True</arg>
 <arg>Click on Next button</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230509 12:37:43.563" endtime="20230509 12:37:43.564"/>
+<status status="PASS" starttime="20230509 12:37:41.987" endtime="20230509 12:37:41.988"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:40.304" endtime="20230509 12:37:43.565"/>
+<status status="PASS" starttime="20230509 12:37:38.633" endtime="20230509 12:37:41.988"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:40.304" endtime="20230509 12:37:43.565"/>
+<status status="PASS" starttime="20230509 12:37:38.632" endtime="20230509 12:37:41.988"/>
 </kw>
 <kw name="Does any of the member have any disease" library="health_policy">
 <arg>${policy_data}[member_have_any_disease]</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${health.pageheader.doesanyofthemembers}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:43.567" endtime="20230509 12:37:43.586"/>
+<status status="PASS" starttime="20230509 12:37:41.990" endtime="20230509 12:37:42.012"/>
 </kw>
 <kw name="Update Dynamic Xpath" library="common">
 <var>${loc_option}</var>
@@ -588,24 +588,24 @@
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:37:43.588" level="INFO">${new_locator} = //input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]</msg>
-<status status="PASS" starttime="20230509 12:37:43.587" endtime="20230509 12:37:43.588"/>
+<msg timestamp="20230509 12:37:42.014" level="INFO">${new_locator} = //input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]</msg>
+<status status="PASS" starttime="20230509 12:37:42.013" endtime="20230509 12:37:42.014"/>
 </kw>
-<msg timestamp="20230509 12:37:43.589" level="INFO">${loc_option} = //input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]</msg>
-<status status="PASS" starttime="20230509 12:37:43.586" endtime="20230509 12:37:43.589"/>
+<msg timestamp="20230509 12:37:42.014" level="INFO">${loc_option} = //input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]</msg>
+<status status="PASS" starttime="20230509 12:37:42.013" endtime="20230509 12:37:42.014"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_option}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:43.590" level="INFO">Clicking element '//input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]'.</msg>
-<status status="PASS" starttime="20230509 12:37:43.589" endtime="20230509 12:37:43.637"/>
+<msg timestamp="20230509 12:37:42.015" level="INFO">Clicking element '//input[@type='radio']/..//span[text()='No']|//input[@type='radio']/../..//label[contains(.,'No')]'.</msg>
+<status status="PASS" starttime="20230509 12:37:42.014" endtime="20230509 12:37:42.065"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${option}'=='Yes'</arg>
 <arg>Wait Until Element Is Visible</arg>
 <arg>${health.pageheader.doesanyofthemembers}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230509 12:37:43.637" endtime="20230509 12:37:43.638"/>
+<status status="PASS" starttime="20230509 12:37:42.066" endtime="20230509 12:37:42.066"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${status}</var>
@@ -617,10 +617,10 @@
 <arg>${health.pageheader.doesanyofthemembers}</arg>
 <arg>${SHORT_WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:43.638" endtime="20230509 12:37:43.653"/>
+<status status="PASS" starttime="20230509 12:37:42.067" endtime="20230509 12:37:42.082"/>
 </kw>
-<msg timestamp="20230509 12:37:43.653" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20230509 12:37:43.638" endtime="20230509 12:37:43.653"/>
+<msg timestamp="20230509 12:37:42.082" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20230509 12:37:42.066" endtime="20230509 12:37:42.082"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>${status}==True</arg>
@@ -630,14 +630,14 @@
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${common.button.next}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:43.655" level="INFO">Clicking element '//div[@id='Next']'.</msg>
-<status status="PASS" starttime="20230509 12:37:43.654" endtime="20230509 12:37:43.750"/>
+<msg timestamp="20230509 12:37:42.085" level="INFO">Clicking element '//div[@id='Next']'.</msg>
+<status status="PASS" starttime="20230509 12:37:42.084" endtime="20230509 12:37:42.163"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:43.654" endtime="20230509 12:37:43.751"/>
+<status status="PASS" starttime="20230509 12:37:42.083" endtime="20230509 12:37:42.163"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:43.653" endtime="20230509 12:37:43.751"/>
+<status status="PASS" starttime="20230509 12:37:42.082" endtime="20230509 12:37:42.164"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:43.565" endtime="20230509 12:37:43.752"/>
+<status status="PASS" starttime="20230509 12:37:41.989" endtime="20230509 12:37:42.164"/>
 </kw>
 <kw name="What is your pincode" library="health_policy">
 <arg>${policy_data}[pincode]</arg>
@@ -645,63 +645,63 @@
 <arg>${health.pageheader.whatisyourpincode}</arg>
 <arg>${SHORT_WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:43.753" endtime="20230509 12:37:43.774"/>
+<status status="PASS" starttime="20230509 12:37:42.165" endtime="20230509 12:37:42.188"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${health.text.pincode}</arg>
 <arg>${pincode}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:43.775" level="INFO">Typing text '500051' into text field '//input[@data-auto="pincode"]'.</msg>
-<status status="PASS" starttime="20230509 12:37:43.774" endtime="20230509 12:37:43.894"/>
+<msg timestamp="20230509 12:37:42.189" level="INFO">Typing text '500051' into text field '//input[@data-auto="pincode"]'.</msg>
+<status status="PASS" starttime="20230509 12:37:42.188" endtime="20230509 12:37:42.280"/>
 </kw>
 <kw name="Click on Next button" library="common">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${common.button.next}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:43.898" level="INFO">Clicking element '//div[@id='Next']'.</msg>
-<status status="PASS" starttime="20230509 12:37:43.897" endtime="20230509 12:37:44.002"/>
+<msg timestamp="20230509 12:37:42.283" level="INFO">Clicking element '//div[@id='Next']'.</msg>
+<status status="PASS" starttime="20230509 12:37:42.281" endtime="20230509 12:37:42.374"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:43.894" endtime="20230509 12:37:44.003"/>
+<status status="PASS" starttime="20230509 12:37:42.280" endtime="20230509 12:37:42.375"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:43.752" endtime="20230509 12:37:44.003"/>
+<status status="PASS" starttime="20230509 12:37:42.164" endtime="20230509 12:37:42.375"/>
 </kw>
 <kw name="Your prefered hospital" library="health_policy">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${health.pageheader.yourpreffered}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:44.004" endtime="20230509 12:37:44.036"/>
+<status status="PASS" starttime="20230509 12:37:42.376" endtime="20230509 12:37:42.409"/>
 </kw>
 <kw name="Click on Next button" library="common">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${common.button.next}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:44.038" level="INFO">Clicking element '//div[@id='Next']'.</msg>
-<status status="PASS" starttime="20230509 12:37:44.037" endtime="20230509 12:37:44.131"/>
+<msg timestamp="20230509 12:37:42.410" level="INFO">Clicking element '//div[@id='Next']'.</msg>
+<status status="PASS" starttime="20230509 12:37:42.409" endtime="20230509 12:37:42.490"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:44.037" endtime="20230509 12:37:44.131"/>
+<status status="PASS" starttime="20230509 12:37:42.409" endtime="20230509 12:37:42.490"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:44.003" endtime="20230509 12:37:44.131"/>
+<status status="PASS" starttime="20230509 12:37:42.375" endtime="20230509 12:37:42.490"/>
 </kw>
 <kw name="What is your income bracket" library="health_policy">
 <arg>${policy_data}[income_bracket]</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${health.pageheader.whatisyourincomebracket}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:44.133" endtime="20230509 12:37:44.155"/>
+<status status="PASS" starttime="20230509 12:37:42.491" endtime="20230509 12:37:42.514"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${income}'=='LESSTHAN2.5LAKHS'</arg>
 <arg>Click Element</arg>
 <arg>${health.radio.incomelessthan2.5}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230509 12:37:44.156" endtime="20230509 12:37:44.157"/>
+<status status="PASS" starttime="20230509 12:37:42.514" endtime="20230509 12:37:42.515"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${income}'=='UPTO5LAKHS'</arg>
 <arg>Click Element</arg>
 <arg>${health.radio.incomeupto5lakhs}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230509 12:37:44.157" endtime="20230509 12:37:44.158"/>
+<status status="PASS" starttime="20230509 12:37:42.515" endtime="20230509 12:37:42.516"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${income}'=='UPTO10LAKHS'</arg>
@@ -711,17 +711,17 @@
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${health.radio.incomeupto10lakhs}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:44.159" level="INFO">Clicking element '//span[@class='ng-binding' and text()='Rs 5 to 10 lakhs']'.</msg>
-<status status="PASS" starttime="20230509 12:37:44.158" endtime="20230509 12:37:44.235"/>
+<msg timestamp="20230509 12:37:42.517" level="INFO">Clicking element '//span[@class='ng-binding' and text()='Rs 5 to 10 lakhs']'.</msg>
+<status status="PASS" starttime="20230509 12:37:42.516" endtime="20230509 12:37:42.579"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:44.158" endtime="20230509 12:37:44.235"/>
+<status status="PASS" starttime="20230509 12:37:42.516" endtime="20230509 12:37:42.579"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${income}'=='MORETHAN10LAKHS'</arg>
 <arg>Click Element</arg>
 <arg>${health.radio.incomemorethan10lakhs}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230509 12:37:44.235" endtime="20230509 12:37:44.236"/>
+<status status="PASS" starttime="20230509 12:37:42.580" endtime="20230509 12:37:42.580"/>
 </kw>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${status}</var>
@@ -733,20 +733,20 @@
 <arg>\</arg>
 <arg>${SHORT_WAIT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20230509 12:37:47.470" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-28.png"&gt;&lt;img src="selenium-screenshot-28.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230509 12:37:47.471" level="FAIL">Element '' not visible after 3 seconds.</msg>
-<status status="FAIL" starttime="20230509 12:37:44.236" endtime="20230509 12:37:47.472"/>
+<msg timestamp="20230509 12:37:45.785" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230509 12:37:45.785" level="FAIL">Element '' not visible after 3 seconds.</msg>
+<status status="FAIL" starttime="20230509 12:37:42.581" endtime="20230509 12:37:45.786"/>
 </kw>
-<msg timestamp="20230509 12:37:47.473" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20230509 12:37:44.236" endtime="20230509 12:37:47.473"/>
+<msg timestamp="20230509 12:37:45.786" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20230509 12:37:42.580" endtime="20230509 12:37:45.786"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>${status}==True</arg>
 <arg>Click on Next button</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230509 12:37:47.474" endtime="20230509 12:37:47.475"/>
+<status status="PASS" starttime="20230509 12:37:45.786" endtime="20230509 12:37:45.787"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:44.132" endtime="20230509 12:37:47.475"/>
+<status status="PASS" starttime="20230509 12:37:42.490" endtime="20230509 12:37:45.787"/>
 </kw>
 <kw name="Save your quote now" library="health_policy">
 <arg>${policy_data}[name]</arg>
@@ -755,50 +755,50 @@
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${health.pageheader.saveyourquote}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:37:47.477" endtime="20230509 12:37:47.498"/>
+<status status="PASS" starttime="20230509 12:37:45.788" endtime="20230509 12:37:45.810"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${health.text.name}</arg>
 <arg>${name}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:47.499" level="INFO">Typing text '1683616057fullname' into text field '//input[@data-auto='leadName']'.</msg>
-<status status="PASS" starttime="20230509 12:37:47.498" endtime="20230509 12:37:47.616"/>
+<msg timestamp="20230509 12:37:45.811" level="INFO">Typing text '1683616056fullname' into text field '//input[@data-auto='leadName']'.</msg>
+<status status="PASS" starttime="20230509 12:37:45.811" endtime="20230509 12:37:45.933"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${health.text.mobile}</arg>
 <arg>${mobile}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:47.617" level="INFO">Typing text '1683616057phno' into text field '//input[@data-auto='leadMobile']'.</msg>
-<status status="PASS" starttime="20230509 12:37:47.617" endtime="20230509 12:37:47.738"/>
+<msg timestamp="20230509 12:37:45.934" level="INFO">Typing text '1683616056phno' into text field '//input[@data-auto='leadMobile']'.</msg>
+<status status="PASS" starttime="20230509 12:37:45.933" endtime="20230509 12:37:46.038"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${health.text.email}</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:47.739" level="INFO">Typing text 'AutoTest1683616057@gmail.com' into text field '//input[@data-auto='leadEmail']'.</msg>
-<status status="PASS" starttime="20230509 12:37:47.738" endtime="20230509 12:37:47.902"/>
+<msg timestamp="20230509 12:37:46.039" level="INFO">Typing text 'AutoTest1683616056@gmail.com' into text field '//input[@data-auto='leadEmail']'.</msg>
+<status status="PASS" starttime="20230509 12:37:46.038" endtime="20230509 12:37:46.181"/>
 </kw>
 <kw name="Click on Next button" library="common">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${common.button.next}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:37:47.903" level="INFO">Clicking element '//div[@id='Next']'.</msg>
-<status status="PASS" starttime="20230509 12:37:47.902" endtime="20230509 12:37:47.968"/>
+<msg timestamp="20230509 12:37:46.182" level="INFO">Clicking element '//div[@id='Next']'.</msg>
+<status status="PASS" starttime="20230509 12:37:46.181" endtime="20230509 12:37:46.247"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:47.902" endtime="20230509 12:37:47.968"/>
+<status status="PASS" starttime="20230509 12:37:46.181" endtime="20230509 12:37:46.247"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:47.475" endtime="20230509 12:37:47.969"/>
+<status status="PASS" starttime="20230509 12:37:45.787" endtime="20230509 12:37:46.247"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:37.490" endtime="20230509 12:37:47.969"/>
+<status status="PASS" starttime="20230509 12:37:36.129" endtime="20230509 12:37:46.248"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>10s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230509 12:37:57.971" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20230509 12:37:47.970" endtime="20230509 12:37:57.972"/>
+<msg timestamp="20230509 12:37:56.258" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20230509 12:37:46.249" endtime="20230509 12:37:56.259"/>
 </kw>
 <kw name="Get Health Policy Results Data" library="CustomLibrary">
-<msg timestamp="20230509 12:38:00.458" level="INFO">22
+<msg timestamp="20230509 12:37:58.723" level="INFO">22
 MAXBUPAHEALTH	Niva Bupa Reassure 2.0 Titanium +	 16081
 500000.0
 99.99
@@ -808,10 +808,10 @@ CIGNA	Pro Health - Plus	 19246
 DIGIT	Digit Diamond	 17029
 500000.0
 97.5
-MAXBUPAHEALTH	Niva Bupa Reassure 2.0 Platinum +	 15656
+MAXBUPAHEALTH	Niva Bupa Reassure 2.0 Bronze +	 14093
 500000.0
 99.99
-MAXBUPAHEALTH	Niva Bupa Reassure 2.0 Bronze +	 14093
+MAXBUPAHEALTH	Niva Bupa Reassure 2.0 Platinum +	 15656
 500000.0
 99.99
 CIGNA	Pro Health - Protect	 14733
@@ -865,26 +865,26 @@ SBIG	Arogya Sanjeevani	 9988
 ORNT	Happy Family floater - Silver	 13610
 500000.0
 89.1</msg>
-<status status="PASS" starttime="20230509 12:37:57.973" endtime="20230509 12:38:00.458"/>
+<status status="PASS" starttime="20230509 12:37:56.263" endtime="20230509 12:37:58.724"/>
 </kw>
 <kw name="Change the cover amount" library="health_policy_results">
 <arg>10</arg>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${healthresult.dropdown.cover}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:38:00.460" level="INFO">Clicking element '//div[@class='filterpanel']/..//button[@id="filterCover"]'.</msg>
-<status status="PASS" starttime="20230509 12:38:00.460" endtime="20230509 12:38:00.516"/>
+<msg timestamp="20230509 12:37:58.726" level="INFO">Clicking element '//div[@class='filterpanel']/..//button[@id="filterCover"]'.</msg>
+<status status="PASS" starttime="20230509 12:37:58.725" endtime="20230509 12:37:58.782"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230509 12:38:03.518" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20230509 12:38:00.516" endtime="20230509 12:38:03.518"/>
+<msg timestamp="20230509 12:38:01.783" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230509 12:37:58.783" endtime="20230509 12:38:01.783"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${healthresult.dropdown.cover}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230509 12:38:03.519" endtime="20230509 12:38:03.540"/>
+<status status="PASS" starttime="20230509 12:38:01.783" endtime="20230509 12:38:01.802"/>
 </kw>
 <kw name="Update Dynamic Xpath" library="common">
 <var>${loc_dropdown_covervalue}</var>
@@ -896,27 +896,27 @@ ORNT	Happy Family floater - Silver	 13610
 <arg>replaceText</arg>
 <arg>${text}</arg>
 <doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20230509 12:38:03.541" level="INFO">${new_locator} = //ul[@class="dropdown-menu noclose"]/..//li[@data-ng-repeat="ele in selector.list"]/..//a[@class="ng-binding" and contains(text(),'10') ]/..//span[@class="ng-scope" and contains(text(),'Lakhs')]</msg>
-<status status="PASS" starttime="20230509 12:38:03.541" endtime="20230509 12:38:03.542"/>
+<msg timestamp="20230509 12:38:01.804" level="INFO">${new_locator} = //ul[@class="dropdown-menu noclose"]/..//li[@data-ng-repeat="ele in selector.list"]/..//a[@class="ng-binding" and contains(text(),'10') ]/..//span[@class="ng-scope" and contains(text(),'Lakhs')]</msg>
+<status status="PASS" starttime="20230509 12:38:01.804" endtime="20230509 12:38:01.805"/>
 </kw>
-<msg timestamp="20230509 12:38:03.542" level="INFO">${loc_dropdown_covervalue} = //ul[@class="dropdown-menu noclose"]/..//li[@data-ng-repeat="ele in selector.list"]/..//a[@class="ng-binding" and contains(text(),'10') ]/..//span[@class="ng-scope" and contains(text(),'Lakhs')]</msg>
-<status status="PASS" starttime="20230509 12:38:03.540" endtime="20230509 12:38:03.542"/>
+<msg timestamp="20230509 12:38:01.805" level="INFO">${loc_dropdown_covervalue} = //ul[@class="dropdown-menu noclose"]/..//li[@data-ng-repeat="ele in selector.list"]/..//a[@class="ng-binding" and contains(text(),'10') ]/..//span[@class="ng-scope" and contains(text(),'Lakhs')]</msg>
+<status status="PASS" starttime="20230509 12:38:01.803" endtime="20230509 12:38:01.805"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loc_dropdown_covervalue}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230509 12:38:03.544" level="INFO">Clicking element '//ul[@class="dropdown-menu noclose"]/..//li[@data-ng-repeat="ele in selector.list"]/..//a[@class="ng-binding" and contains(text(),'10') ]/..//span[@class="ng-scope" and contains(text(),'Lakhs')]'.</msg>
-<status status="PASS" starttime="20230509 12:38:03.542" endtime="20230509 12:38:03.662"/>
+<msg timestamp="20230509 12:38:01.806" level="INFO">Clicking element '//ul[@class="dropdown-menu noclose"]/..//li[@data-ng-repeat="ele in selector.list"]/..//a[@class="ng-binding" and contains(text(),'10') ]/..//span[@class="ng-scope" and contains(text(),'Lakhs')]'.</msg>
+<status status="PASS" starttime="20230509 12:38:01.805" endtime="20230509 12:38:01.931"/>
 </kw>
-<status status="PASS" starttime="20230509 12:38:00.460" endtime="20230509 12:38:03.662"/>
+<status status="PASS" starttime="20230509 12:37:58.724" endtime="20230509 12:38:01.932"/>
 </kw>
-<status status="PASS" starttime="20230509 12:37:32.759" endtime="20230509 12:38:03.663"/>
+<status status="PASS" starttime="20230509 12:37:31.279" endtime="20230509 12:38:01.932"/>
 </test>
-<status status="PASS" starttime="20230509 12:37:32.743" endtime="20230509 12:38:03.665"/>
+<status status="PASS" starttime="20230509 12:37:31.268" endtime="20230509 12:38:01.934"/>
 </suite>
-<status status="PASS" starttime="20230509 12:37:32.339" endtime="20230509 12:38:03.670"/>
+<status status="PASS" starttime="20230509 12:37:30.947" endtime="20230509 12:38:01.939"/>
 </suite>
-<status status="PASS" starttime="20230509 12:37:32.222" endtime="20230509 12:38:03.677"/>
+<status status="PASS" starttime="20230509 12:37:30.920" endtime="20230509 12:38:01.942"/>
 </suite>
 <statistics>
 <total>
