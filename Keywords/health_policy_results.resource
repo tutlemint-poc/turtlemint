@@ -1,34 +1,38 @@
+*** Settings ***
+Resource          ../Global/super.robot
+
 *** Keywords ***
-Get the default cover amount
-    [Arguments]    ${cover_value}=${EMPTY}
-    Wait Until Element Is Visible    ${health.header.coveramount}    ${MEDIUM_WAIT}    cover amount is not displayed.
-    ${cover_amount}=    GetText    ${health.header.coveramount}
-    Run Keyword If    '${cover_amount}'=='5 Lakhs'    Change the cover amount    ${cover_value}
+Get cover amount from policy result header
+    Wait Until Element Is Visible    ${healthresult.header.coveramount}    ${MEDIUM_WAIT}    Cover amount is not displayed in health policy result page
+    ${cover_amount}=    GetText    ${healthresult.header.coveramount}
+    ${cover_amount}    Convert To Integer    ${cover_amount}
+    ${cover_amount_lakhs}    Evaluate    ${cover_amount}*${100000}
+    [Return]    ${cover_amount_lakhs}
 
 Change the cover amount
-    [Arguments]    ${cover_value}
-    Click Element    ${healthresult.dropdown.cover}
-    Wait Until Element Is Visible    ${healthresult.dropdown.cover}    ${MEDIUM_WAIT}    cover amount dropdown is not displayed.
-    ${loc_dropdown_covervalue}    Update Dynamic Xpath    ${health.result.dropdown.covervalue}    ${cover_value}
+    [Arguments]    ${cover_amount}
+    Click Element    ${healthresult.dropdown.button.coveramount}
+    Wait Until Element Is Visible    ${healthresult.dropdown.list.coveramount}    ${MEDIUM_WAIT}    Cover amount dropdown is not displayed.
+    ${loc_dropdown_covervalue}    Update Dynamic Xpath    ${healthresult.dropdown.select.coveramount}    ${cover_amount}
     Click Element    ${loc_dropdown_covervalue}
 
-Select the policy company name from filters
-    [Arguments]    ${insuer_name}
-    Wait Until Element Is Visible    ${health.results.dropdown.selectinsurer}    ${MEDIUM_WAIT}    select insure drop down is not displayed.
-    Click Element    ${health.results.dropdown.selectinsurer}
-    Wait Until Element Is Visible    ${health.dropdown.insurerlist}
-    ${loc_dropdown_selectinsurer}    Update Dynamic Xpath    ${health.dropdown.selectinsurername}    ${insuer_name}
+Filter By Insurer
+    [Arguments]    ${insurer_name}
+    Wait Until Element Is Visible    ${healthresult.dropdown.button.insurer}    ${MEDIUM_WAIT}    Select insure drop down is not displayed.
+    Click Element    ${healthresult.dropdown.button.insurer}
+    Wait Until Element Is Visible    ${healthresult.dropdown.list.insurer}
+    ${loc_dropdown_selectinsurer}    Update Dynamic Xpath    ${healthresult.dropdown.select.insurer}    ${insurer_name}
     Click Element    ${loc_dropdown_selectinsurer}
 
 Check the cover amount in policy results
     [Arguments]    ${given_cover_amount}    ${policy_results_data}
-    ${threshold_amount}    Set Variable    ${given_cover_amount}+${50000}
+    ${threshold_amount}    Set Variable    ${given_cover_amount}+${20000}
     ${policy_count}    Get Length    ${policy_results_data}
     FOR    ${key}    IN    @{policy_results_data.keys()}
         ${act_cover_amount}    Set Variable    ${policy_results_data}[${key}][cover_amount]
         IF    ${act_cover_amount} > ${threshold_amount}
         ${plan_name}    Set Variable    ${policy_results_data}[${key}][plan_name]
-        Run Keyword And Continue On Failure    Fail    ${plan_name} cover amount is more than the selected cover amount
+        Run Keyword And Continue On Failure    Fail    ${plan_name} cover amount is more than the selected cover amount. Cover Amount displayed: ${act_cover_amount}
     END
     END
 

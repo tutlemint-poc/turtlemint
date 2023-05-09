@@ -23,3 +23,5 @@ ${health.radio.incomelessthan2.5}    //span[@class='ng-binding' and text()='Less
 ${health.radio.incomeupto5lakhs}    //span[@class='ng-binding' and text()='Rs 2.5 to 5 lakhs']
 ${health.radio.incomeupto10lakhs}    //span[@class='ng-binding' and text()='Rs 5 to 10 lakhs']
 ${health.radio.incomemorethan10lakhs}    //span[@class='ng-binding' and text()='More than Rs 10 lakhs']
+${health.button.next}    //div[@id='Next']
+${health.button.back}    //div[@id='Back']

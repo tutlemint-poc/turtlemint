@@ -16,12 +16,6 @@ Launch Browser and Navigate to URL
     ...    ELSE    Launch Browser    ${browser_name}    ${url}
     Maximize Browser Window
 
-Click on Next button
-    Click Element    ${common.button.next}
-
-Click on back button
-    Click Element    ${common.button.back}
-
 Select from dropdown
     [Arguments]    ${dropdown_labelname}    ${dropdown_value}
     ${loc_dropdown_name}    Update Dynamic Xpath    ${home.dropdown}    ${dropdown_labelname}
