@@ -24,7 +24,7 @@ Who would you like to insure
     FOR    ${member}    IN    @{list_members}
         Select Checkbox    ${member}
     END
-    Click on Next button
+    health_policy.Click on Next button
 
 What is their age
     [Arguments]    ${relations_n_age}    # Self-35 years;Wife-33 years
@@ -35,7 +35,7 @@ What is their age
         ${dropdown_value}=    Get From List    ${age}    1
         Select from dropdown    ${dropdown_labelname}    ${dropdown_value}
     END
-    Click on Next button
+    health_policy.Click on Next button
 
 Are you planning to have kids
     [Arguments]    ${option}    ${planning_kids}=${EMPTY}
@@ -44,7 +44,7 @@ Are you planning to have kids
     Click Element    ${loc_option}
     Run Keyword If    '${option}'=='Yes'    When are you planning to have a child    ${planning_kids}
     ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${health.pageheader.areyouplanningto}    ${SHORT_WAIT}
-    Run Keyword If    ${status}==True    Click on Next button
+    Run Keyword If    ${status}==True    health_policy.Click on Next button
 
 When are you planning to have a child
     [Arguments]    ${planning_option}
@@ -53,7 +53,7 @@ When are you planning to have a child
     Run Keyword If    '${planning_option}'=='IN3YRS'    Click Element    ${health.radio.1-3years}
     Run Keyword If    '${planning_option}'=='MORETHAN3YRS'    Click Element    ${health.radio.morethan3years}
     ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${health.header.whenareyouplanningtohaveachild}    ${SHORT_WAIT}
-    Run Keyword If    ${status}==True    Click on Next button
+    Run Keyword If    ${status}==True    health_policy.Click on Next button
 
 Does any of the member have any disease
     [Arguments]    ${option}    ${pincode}=${EMPTY}
@@ -62,17 +62,17 @@ Does any of the member have any disease
     Click Element    ${loc_option}
     Run Keyword If    '${option}'=='Yes'    Wait Until Element Is Visible    ${health.pageheader.doesanyofthemembers}
     ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${health.pageheader.doesanyofthemembers}    ${SHORT_WAIT}
-    Run Keyword If    ${status}==True    Click on Next button
+    Run Keyword If    ${status}==True    health_policy.Click on Next button
 
 What is your pincode
     [Arguments]    ${pincode}
     Wait Until Element Is Visible    ${health.pageheader.whatisyourpincode}    ${SHORT_WAIT}
     Input Text    ${health.text.pincode}    ${pincode}
-    Click on Next button
+    health_policy.Click on Next button
 
 Your prefered hospital
     Wait Until Element Is Visible    ${health.pageheader.yourpreffered}
-    Click on Next button
+    health_policy.Click on Next button
 
 What is your income bracket
     [Arguments]    ${income}
@@ -82,7 +82,7 @@ What is your income bracket
     Run Keyword If    '${income}'=='UPTO10LAKHS'    Click Element    ${health.radio.incomeupto10lakhs}
     Run Keyword If    '${income}'=='MORETHAN10LAKHS'    Click Element    ${health.radio.incomemorethan10lakhs}
     ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    \    ${SHORT_WAIT}
-    Run Keyword If    ${status}==True    Click on Next button
+    Run Keyword If    ${status}==True    health_policy.Click on Next button
 
 Save your quote now
     [Arguments]    ${name}    ${mobile}    ${email}
@@ -90,7 +90,8 @@ Save your quote now
     Input Text    ${health.text.name}    ${name}
     Input Text    ${health.text.mobile}    ${mobile}
     Input Text    ${health.text.email}    ${email}
-    Click on Next button
+    health_policy.Click on Next button
+    Wait Until Element Is Visible    ${healthresult.pageheader}    ${MEDIUM_WAIT}    Health results page is not displayed
 
 Create a Health Policy
     [Arguments]    ${policy_data}
@@ -107,3 +108,9 @@ Create a Health Policy
     Your prefered hospital
     What is your income bracket    ${policy_data}[income_bracket]
     Save your quote now    ${policy_data}[name]    ${policy_data}[mobile]    ${policy_data}[email]
+
+Click on Next button
+    Click Element    ${health.button.next}
+
+Click on back button
+    Click Element    ${health.button.back}
