@@ -239,8 +239,8 @@ class CustomLibrary(object):
 
 
         def get_health_policy_results(self):
-                loc_policy_results = "//div[contains(@data-ng-repeat,'result in healthResultObj')]"
-                loc_single_policy= "//div[contains(@data-ng-repeat,'result in healthResultObj')][{}]"
+                loc_policy_results = "//div[contains(@data-ng-repeat,'result in healthResultObj')and @class='result-card-wrapper ng-scope']"
+                loc_single_policy= "//div[contains(@data-ng-repeat,'result in healthResultObj') and @class='result-card-wrapper ng-scope'][{}]"
                 loc_policy_client = "//div[contains(@class,'clients-logo')]/img"
                 loc_policy_plan_name = "//span[contains(@class,'planName')]"
                 loc_policy_cover_amount = "//span[@class='bold ng-binding' and contains(@data-auto,'coverAmount')]"
@@ -263,22 +263,35 @@ class CustomLibrary(object):
                         #get cover amount
                         loc_policy_cover_amount_updated = loc_single_policy_updated + loc_policy_cover_amount
                         ele = self._driver.find_element_by_xpath(loc_policy_cover_amount_updated)
-                        cover_amount = ele.text
-                        cover_amount = cover_amount.replace("₹","").replace("Lakhs","")
-                        cover_amount = float(cover_amount)
-                        cover_amount = int(cover_amount*100000)
+                        print(loc_policy_cover_amount_updated)
+                        cover_amount = ele.text                        
+                        cover_amount = cover_amount.replace("₹","").replace("Lakhs","").strip()
+                        print("Cover Amount:" + cover_amount)
+                        if (len(cover_amount)>0):                                
+                                cover_amount = float(cover_amount)
+                                cover_amount = int(cover_amount*100000)
+                        else:
+                                cover_amount=0
                         #get total premium
+                        print(cover_amount)
                         loc_policy_total_premium_updated = loc_single_policy_updated + loc_policy_total_premium
                         ele = self._driver.find_element_by_xpath(loc_policy_total_premium_updated)
                         total_premium = ele.text
                         total_premium= total_premium.replace("₹","").replace(",","").strip()
-                        total_premium=int(total_premium)
+                        print("Total Premium" + total_premium)
+                        if (len(total_premium)>0):
+                                total_premium=int(total_premium)
+                        else:
+                                total_premium=0
                         #get claim settled
                         loc_policy_cliam_settled_updated = loc_single_policy_updated + loc_policy_cliam_settled
                         ele = self._driver.find_element_by_xpath(loc_policy_cliam_settled_updated)
                         claim_settled = ele.text
                         claim_settled=claim_settled.replace("%","")
-                        claim_settled = float(claim_settled)                        
+                        if (len(claim_settled)>0):
+                                claim_settled = float(claim_settled)
+                        else:
+                                claim_settled=0
                         dict_policy = {'client_name':client_name, 'plan_name':plan_name,'cover_amount':cover_amount,'total_premium':total_premium,'claim_settled':claim_settled}
                         print(dict_policy)
                         dict_policies[counter]=dict_policy

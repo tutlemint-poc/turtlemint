@@ -23,6 +23,7 @@ Filter By Insurer
     Wait Until Element Is Visible    ${healthresult.dropdown.list.insurer}
     ${loc_dropdown_selectinsurer}    Update Dynamic Xpath    ${healthresult.dropdown.select.insurer}    ${insurer_name}
     Click Element    ${loc_dropdown_selectinsurer}
+    Click Element    ${healthresult.dropdown.button.insurer}
 
 Check the cover amount in policy results
     [Arguments]    ${given_cover_amount}    ${policy_results_data}
