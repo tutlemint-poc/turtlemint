@@ -20,3 +20,5 @@ ${life.text.mobile}    //input[@name='paidUserMobile']
 ${life.pageheader.saveyouruote}    //div[contains(@class,'slideHeader') and text()='Save your quote now']
 ${life.button.back}    //span[text()='Back']
 ${life.assured_amt.value}    //li[text()='replaceText']
+${life.calender.yearandmonth}    //select[@class='sc-iQKALj gwKrYD']    # This consists for both year and month
+${life.calender.yearandmonth.value}    //option[text()='replaceText']

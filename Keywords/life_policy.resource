@@ -20,7 +20,7 @@ Select type of Life Insurance
     Run Keyword If    '${life_insurance_type}'=='Pension & Retirement'    Click Element    ${life.typeof.pension}
 
 Tell us about the Insured
-    [Arguments]    ${gender}    ${option_smokeorchew}    ${annual.inc}
+    [Arguments]    ${gender}    ${option_smokeorchew}    ${annual.inc}    ${calender_year}    ${calender_month}
     Wait Until Element Is Visible    ${life.pageheader.abouttheinsured}    ${MEDIUM_WAIT}    Insured page is not displayed
     ${loc_gender}=    Update Dynamic Xpath    ${life.radiobtn.gender}    ${gender}
     Click Element    ${loc_gender}
@@ -29,7 +29,7 @@ Tell us about the Insured
     Click Element    ${loc_option}
     Comment    Select annual Income from dropdown.
     Annual Income    ${annual.inc}
-    Date of Birth
+    Date of Birth    ${calender_year}    ${calender_month}
     Click Next button
 
 Select the Sum Assured Amount
@@ -52,7 +52,7 @@ Create a Life Policy
     [Arguments]    ${policy_data}
     Select type of Insurance    ${policy_data}[insurance_type]
     Select type of Life Insurance    ${policy_data}[life_insurance_type]
-    Tell us about the Insured    ${policy_data}[gender]    ${policy_data}[option_tobacco]    ${policy_data}[annual_income]
+    Tell us about the Insured    ${policy_data}[gender]    ${policy_data}[option_tobacco]    ${policy_data}[annual_income]    ${policy_data}[year]    ${policy_data}[month]
     Select the Sum Assured Amount    ${policy_date}[assured_amount]
     life_policy.Save your quote now    ${policy_data}[name]    ${policy_data}[mobile]    ${policy_data}[email]
 
@@ -65,10 +65,19 @@ Annual Income
     Click Element    ${loc_annual.inc}
 
 Date of Birth
+    [Arguments]    ${calender_year}    ${calender_month}
     Wait Until Element Is Visible    ${life.pageheader.abouttheinsured}    ${MEDIUM_WAIT}    Insured page is not displayed
     Click Element    ${life.input.calender}
     Wait Until Element Is Visible    ${life.dob.calender}
-    Comment    ${loc_dateofbirth}=    CustomLibrary.Get Future Date    ${life.dob.calender}
+    Comment    xpath for year and month dropdown
+    Click Element    ${life.calender.yearandmonth}
+    ${loc_updateyear}=    Update Dynamic Xpath    ${life.calender.yearandmonth.value}    ${calender_year}
+    Click Element    ${loc_updateyear}
+    ${loc_updatemonth}=    Update Dynamic Xpath    ${life.calender.yearandmonth.value}    ${calender_month}
+    Click Element    ${loc_updatemonth}
+    Sleep    3s
+    Click Element    //div[@class='react-datepicker__day react-datepicker__day--002 react-datepicker__day--weekend']
+    Click Element    //div[text()='2']
 
 Click Next button
     Click Button    ${life.button.next}
