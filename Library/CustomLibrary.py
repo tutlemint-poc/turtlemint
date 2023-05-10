@@ -263,26 +263,17 @@ class CustomLibrary(object):
                         #get cover amount
                         loc_policy_cover_amount_updated = loc_single_policy_updated + loc_policy_cover_amount
                         ele = self._driver.find_element_by_xpath(loc_policy_cover_amount_updated)
-                        print(loc_policy_cover_amount_updated)
-                        cover_amount = ele.text                        
-                        cover_amount = cover_amount.replace("₹","").replace("Lakhs","").strip()
-                        print("Cover Amount:" + cover_amount)
-                        if (len(cover_amount)>0):                                
-                                cover_amount = float(cover_amount)
-                                cover_amount = int(cover_amount*100000)
-                        else:
-                                cover_amount=0
+                        cover_amount = ele.text
+                        cover_amount = cover_amount.replace("₹","").replace("Lakhs","")
+                        cover_amount = float(cover_amount)
+                        cover_amount = int(cover_amount*100000)
                         #get total premium
                         print(cover_amount)
                         loc_policy_total_premium_updated = loc_single_policy_updated + loc_policy_total_premium
                         ele = self._driver.find_element_by_xpath(loc_policy_total_premium_updated)
                         total_premium = ele.text
                         total_premium= total_premium.replace("₹","").replace(",","").strip()
-                        print("Total Premium" + total_premium)
-                        if (len(total_premium)>0):
-                                total_premium=int(total_premium)
-                        else:
-                                total_premium=0
+                        total_premium=int(total_premium)
                         #get claim settled
                         loc_policy_cliam_settled_updated = loc_single_policy_updated + loc_policy_cliam_settled
                         ele = self._driver.find_element_by_xpath(loc_policy_cliam_settled_updated)
@@ -304,8 +295,8 @@ class CustomLibrary(object):
                 key = key_list[position]
                 return key
         
-        def calculate_percentage(self,num1,num2):
-                print(num1 / num2)
-                print((num1 / num2) * 100)
-                percentage = round((num1 / num2) * 100)
+        def calculate_percentage(self,part_num,whole_num):
+                print(part_num / whole_num)
+                print((part_num / whole_num) * 100)
+                percentage = round((part_num / whole_num) * 100)
                 return percentage

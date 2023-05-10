@@ -55,3 +55,12 @@ Check premium amount details
         ${EMPTY}
         Run Keyword And Continue On Failure    Should Be Equal As Strings    ${exp_client_code}    ${act_insurer_code}
     END
+
+Wait for Policy Results to displayed
+    Comment    Page Should Contain Element    ${healthresult.page.data.ready}
+    Wait Until Element Is Visible    ${healthresult.page.data.ready}    ${SHORT_WAIT}
+    Wait Until Element Is Not Visible    ${healthresult.page.data.ready}    ${LONG_WAIT}
+    Capture Page Screenshot
+
+Wait for Policy Filter Results to displayed
+    Run Keyword And Ignore Error    Wait Until Element Is Not Visible    ${healthresult.page.filter.ready}    20s

@@ -18,8 +18,9 @@ TC02 Quote For Health Policy and Filter By Insurer
     Launch Browser and Navigate to URL    ${URL}    ${BROWSER_NAME}
     ${policy_data}=    Read TestData From Excel    TC_02    policy
     Create a Health Policy    ${policy_data}
-    Sleep    10s
+    Wait for Policy Results to displayed
+    ${policy_results}    CustomLibrary.Get Health Policy Results
     Filter By Insurer    Manipal Cigna Health Insurance
-    Comment    Sleep    10s
+    Wait for Policy Filter Results to displayed
     ${policy_results}    CustomLibrary.Get Health Policy Results
     Check the Filtered Insurance details are displayed    Manipal Cigna Health Insurance    ${policy_results}
