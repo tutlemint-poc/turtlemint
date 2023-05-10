@@ -36,7 +36,7 @@ Select the Sum Assured Amount
     [Arguments]    ${assured_amount}
     Wait Until Element Is Visible    ${life.pageheader.sumassured}    ${MEDIUM_WAIT}    Summ assured page is not displayed
     Click Element    ${life.assured_amt.dropdown}
-    ${loc_assured.amt}=    Update Dynamic Xpath    ${life.assured_amt.dropdown}    ${assured_amount}
+    ${loc_assured.amt}=    Update Dynamic Xpath    ${life.assured_amt.value}    ${assured_amount}
     Click Element    ${loc_assured.amt}
     Click Next button
 
