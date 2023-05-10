@@ -1,0 +1,21 @@
+*** Variables ***
+${life.typeof.termplan}    //p[text()='Term Life Plans']/preceding-sibling::label
+${life.pageheader.lifeinsurance}    //p[text()='Select type of Life insurance']    # Selecting type of life insurance
+${life.pageheader.abouttheinsured}    //div[contains(@class,'slideHeader') and text()='Tell us about the Insured...']
+${life.radiobtn.gender}    //label[text()='replaceText']
+${life.radiobtn.tobacco}    //label[text()='replaceText']
+${life.dropdown.annualinc}    //div[@name='maxIncome']
+${life.annualinc.value}    //span[text()='replaceText']
+${life.input.calender}    //input[@class='sc-eNQAEJ jyGtOU']
+${life.dob.calender}    //div[@class='react-datepicker']
+${life.button.next}    //span[text()='Next']
+${life.typeof.investment}    //p[text()='Investment & Tax Planning']/preceding-sibling::label
+${life.typeof.savingforchile}    //p[text()='Saving For Child']/preceding-sibling::label
+${life.typeof.pension}    //p[text()='Pension & Retirement']/preceding-sibling::label
+${life.pageheader.sumassured}    //div[contains(@class,'slideHeader') and text()='Select the Sum Assured Amount']
+${life.assured_amt.dropdown}    //div[@class='sc-eqIVtm cCBzET']
+${life.text.name}    //input[@name='customerName']
+${life.text.email}    //input[@name='paidUserEmail']
+${life.text.mobile}    //input[@name='paidUserMobile']
+${life.pageheader.saveyouruote}    //div[contains(@class,'slideHeader') and text()='Save your quote now']
+${life.button.back}    //span[text()='Back']
