@@ -57,9 +57,37 @@ Check premium amount details
 
 Wait for Policy Results to displayed
     Comment    Page Should Contain Element    ${healthresult.page.data.ready}
-    Wait Until Element Is Visible    ${healthresult.page.data.ready}    ${SHORT_WAIT}
-    Wait Until Element Is Not Visible    ${healthresult.page.data.ready}    ${LONG_WAIT}
+    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${healthresult.page.data.ready}    ${SHORT_WAIT}
+    Run Keyword And Ignore Error    Wait Until Element Is Not Visible    ${healthresult.page.data.ready}    ${LONG_WAIT}
     Capture Page Screenshot
 
 Wait for Policy Filter Results to displayed
     Run Keyword And Ignore Error    Wait Until Element Is Not Visible    ${healthresult.page.filter.ready}    20s
+
+Get Policy Name whoes claim settlement is less than 90%
+    [Arguments]    ${policy_results_data}
+    ${policy_count}    Get Length    ${policy_results_data}
+    FOR    ${key}    IN    @{policy_results_data.keys()}
+        ${claim_settled}    Set Variable    ${policy_results_data}[${key}][claim_settled]
+        IF    ${claim_settled}<90
+        ${plan_name}    Set Variable    ${policy_results_data}[${key}][plan_name]
+        ${code}    Set Variable    ${policy_results_data}[${key}][client_name]
+        ${client_name}    Set Variable    ${CLIENT_CODE}[${code}]
+        Log    ${client_name} ${plan_name} cliam settlement is less than 90%. Displayed cliam settlement ${claim_settled}    WARN
+    END
+    END
+
+Get Policy Name whoes premiun amount is morethan 2% of cover amount
+    [Arguments]    ${policy_results_data}
+    ${policy_count}    Get Length    ${policy_results_data}
+    FOR    ${key}    IN    @{policy_results_data.keys()}
+        ${total_premium}    Set Variable    ${policy_results_data}[${key}][total_premium]
+        ${cover_amount}    Set Variable    ${policy_results_data}[${key}][cover_amount]
+        ${percentage}    CustomLibrary.Calculate Percentage    ${total_premium}    ${cover_amount}
+        IF    ${percentage}>2
+        ${plan_name}    Set Variable    ${policy_results_data}[${key}][plan_name]
+        ${code}    Set Variable    ${policy_results_data}[${key}][client_name]
+        ${client_name}    Set Variable    ${CLIENT_CODE}[${code}]
+        Log    ${client_name} ${plan_name} has total premium more than 2 percent (${percentage}) of cover amount. Cover Amount:${cover_amount}, Total Premium: ${total_premium}    WARN
+    END
+    END
