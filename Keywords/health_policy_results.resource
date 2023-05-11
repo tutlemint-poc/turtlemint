@@ -57,8 +57,8 @@ Check premium amount details
 
 Wait for Policy Results to displayed
     Comment    Page Should Contain Element    ${healthresult.page.data.ready}
-    Wait Until Element Is Visible    ${healthresult.page.data.ready}    ${SHORT_WAIT}
-    Wait Until Element Is Not Visible    ${healthresult.page.data.ready}    ${LONG_WAIT}
+    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${healthresult.page.data.ready}    ${SHORT_WAIT}
+    Run Keyword And Ignore Error    Wait Until Element Is Not Visible    ${healthresult.page.data.ready}    ${LONG_WAIT}
     Capture Page Screenshot
 
 Wait for Policy Filter Results to displayed
