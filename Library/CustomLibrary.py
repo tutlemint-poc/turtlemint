@@ -225,8 +225,8 @@ class CustomLibrary(object):
                 return fullname
 
         def get_phone_number(self):
-                ph_no=""
-                for i in range(1, 11):
+                ph_no='9'
+                for i in range(1, 10):
                     ph_no+= str(r.randint(0, 9))
                 print (ph_no)
                 return ph_no
