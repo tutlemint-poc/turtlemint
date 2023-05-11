@@ -225,8 +225,8 @@ class CustomLibrary(object):
                 return fullname
 
         def get_phone_number(self):
-                ph_no=""
-                for i in range(1, 11):
+                ph_no='9'
+                for i in range(1, 10):
                     ph_no+= str(r.randint(0, 9))
                 print (ph_no)
                 return ph_no
@@ -238,9 +238,9 @@ class CustomLibrary(object):
                 return res
 
 
-        def get_health_policy_results_data(self):
-                loc_policy_results = "//div[contains(@data-ng-repeat,'result in healthResultObj')]"
-                loc_single_policy= "//div[contains(@data-ng-repeat,'result in healthResultObj')][{}]"
+        def get_health_policy_results(self):
+                loc_policy_results = "//div[contains(@data-ng-repeat,'result in healthResultObj')and @class='result-card-wrapper ng-scope']"
+                loc_single_policy= "//div[contains(@data-ng-repeat,'result in healthResultObj') and @class='result-card-wrapper ng-scope'][{}]"
                 loc_policy_client = "//div[contains(@class,'clients-logo')]/img"
                 loc_policy_plan_name = "//span[contains(@class,'planName')]"
                 loc_policy_cover_amount = "//span[@class='bold ng-binding' and contains(@data-auto,'coverAmount')]"
@@ -249,6 +249,7 @@ class CustomLibrary(object):
                 self.wait_until_element_displayed(loc_policy_results)
                 items = len(self._driver.find_elements_by_xpath(loc_policy_results))
                 print(items)
+                dict_policies={}
                 for counter in range(1,items+1):
                         loc_single_policy_updated = loc_single_policy.format(counter)
                         #get client name
@@ -262,21 +263,45 @@ class CustomLibrary(object):
                         #get cover amount
                         loc_policy_cover_amount_updated = loc_single_policy_updated + loc_policy_cover_amount
                         ele = self._driver.find_element_by_xpath(loc_policy_cover_amount_updated)
-                        cover_amount = ele.text
-                        cover_amount = cover_amount.replace("₹","").replace("Lakhs","")
-                        cover_amount = float(cover_amount)
-                        cover_amount = cover_amount*100000
+                        cover_amount = ele.text                        
+                        cover_amount = cover_amount.replace("₹","").replace("Lakhs","").strip()
+                        if (len(cover_amount)>0):                                
+                                cover_amount = float(cover_amount)
+                                cover_amount = int(cover_amount*100000)
+                        else:
+                                cover_amount=0
                         #get total premium
                         loc_policy_total_premium_updated = loc_single_policy_updated + loc_policy_total_premium
                         ele = self._driver.find_element_by_xpath(loc_policy_total_premium_updated)
                         total_premium = ele.text
-                        total_premium= total_premium.replace("₹","").replace(",","")
+                        total_premium= total_premium.replace("₹","").replace(",","").strip()
+                        if (len(total_premium)>0):
+                                total_premium=int(total_premium)
+                        else:
+                                total_premium=0
                         #get claim settled
                         loc_policy_cliam_settled_updated = loc_single_policy_updated + loc_policy_cliam_settled
                         ele = self._driver.find_element_by_xpath(loc_policy_cliam_settled_updated)
                         claim_settled = ele.text
                         claim_settled=claim_settled.replace("%","")
-                        claim_settled = float(claim_settled)
-                        print(client_name + "\t" + plan_name + "\t" + total_premium)
-                        print(cover_amount)
-                        print(claim_settled)
+                        if (len(claim_settled)>0):
+                                claim_settled = float(claim_settled)
+                        else:
+                                claim_settled=0
+                        dict_policy = {'client_name':client_name, 'plan_name':plan_name,'cover_amount':cover_amount,'total_premium':total_premium,'claim_settled':claim_settled}
+                        print(dict_policy)
+                        dict_policies[counter]=dict_policy
+                return dict_policies
+
+        def get_company_code(self,dict_company,value):
+                key_list = list(dict_company.keys())
+                val_list = list(dict_company.values())
+                position = val_list.index(value)
+                key = key_list[position]
+                return key
+        
+        def calculate_percentage(self,part_num,whole_num):
+                print(part_num / whole_num)
+                print((part_num / whole_num) * 100)
+                percentage = round((part_num / whole_num) * 100)
+                return percentage

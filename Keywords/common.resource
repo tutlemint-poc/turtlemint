@@ -16,12 +16,6 @@ Launch Browser and Navigate to URL
     ...    ELSE    Launch Browser    ${browser_name}    ${url}
     Maximize Browser Window
 
-Click on Next button
-    Click Element    ${common.button.next}
-
-Click on back button
-    Click Element    ${common.button.back}
-
 Select from dropdown
     [Arguments]    ${dropdown_labelname}    ${dropdown_value}
     ${loc_dropdown_name}    Update Dynamic Xpath    ${home.dropdown}    ${dropdown_labelname}
@@ -50,3 +44,9 @@ Read TestData From Excel
     ${test_prerequisite_data}    CustomLibrary.Get Ms Excel Row Values Into Dictionary Based On Key    ${TESTDATA_FOLDER}/TestData.xlsx    ${testcaseid}    ${sheet_name}
     Set Global Variable    ${test_prerequisite_data}
     [Return]    ${test_prerequisite_data}
+
+Update Multiple Dynamic Xpath
+    [Arguments]    ${locator}    ${text1}    ${text2}
+    ${new_locator}    Replace String    ${locator}    replaceText1    ${text1}
+    ${new_locator}    Replace String    ${new_locator}    replaceText2    ${text2}
+    [Return]    ${new_locator}
