@@ -25,24 +25,10 @@ TC02 Quote For Health Policy and Filter By Insurer
     ${policy_results}    CustomLibrary.Get Health Policy Results
     Check the Filtered Insurance details are displayed    Manipal Cigna Health Insurance    ${policy_results}
 
-TC03 Creating Life Policy
-    Launch Browser and Navigate to URL    ${URL}    ${BROWSER_NAME}
-    ${policy_data}=    Read TestData From Excel    TC_02    life_policy
-    Create a Life Policy    ${policy_data}
-
 TC04 Life Policy Filters
     Launch Browser and Navigate to URL    ${URL}    ${BROWSER_NAME}
-    ${policy_data}=    Read TestData From Excel    TC_02    life_policy
+    ${policy_data}=    Read TestData From Excel    TC_01    life_policy
     Create a Life Policy    ${policy_data}
     Check Pop up Message
     Get payment frequency from policy result
-    Get sum assured from policy result
-
-sample
-    Comment    ${date_of_birth}    Set Variable    12-Sep-1999
-    Comment    ${list_birthdate}    Split String    ${date_of_birth}    -
-    Comment    ${day}    Set Variable    ${list_birthdate}[0]
-    Comment    ${month}    Set Variable    ${list_birthdate}[1]
-    Comment    ${year}    Set Variable    ${list_birthdate}[2]
-    ${sample}    get_phone_number
-    Log    ${sample}
+    Get sum assured from policy result    ${policy_data}[assured_amount]

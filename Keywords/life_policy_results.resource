@@ -13,5 +13,12 @@ Get payment frequency from policy result
     ${payment_frequency}=    Get Text    ${liferesults.header.paymentfrequency}
 
 Get sum assured from policy result
+    [Arguments]    ${assured_amount}
     Wait Until Element Is Visible    ${liferesults.header.sumassured}    ${MEDIUM_WAIT}    Sum assured is not displayed is Life policy page
     ${sum_assured}=    Get Text    ${liferesults.header.sumassured}
+    ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${liferesults.header.sumassured}    ${SHORT_WAIT}
+    Run Keyword If    ${status}==True    ${assured_amount}
+
+Check premium amount
+    Wait Until Element Is Visible    ${liferesults.header.premiumamount}    ${MEDIUM_WAIT}    Premium amount should be displayed in life policy page.
+    ${premium_amount}=    Get Text    ${liferesults.header.premiumamount}

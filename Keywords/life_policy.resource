@@ -13,7 +13,6 @@ Select type of Insurance
 Select type of Life Insurance
     [Arguments]    ${life_insurance_type}
     Wait Until Element Is Visible    ${life.pageheader.lifeinsurance}    ${SHORT_WAIT}    Life type of Insurance is not displayed
-    Comment    Click Element    ${life.typeof.termplan}
     Run Keyword If    '${life_insurance_type}'=='Term Life Plans'    Click Element    ${life.typeof.termplan}
     Run Keyword If    '${life_insurance_type}'=='Investment & Tax planning'    Click Element    ${life.typeof.investment}
     Run Keyword If    '${life_insurance_type}'=='Saving for Child'    Click Element    ${life.typeof.savingforchild}
