@@ -21,7 +21,7 @@ TC02 Quote For Health Policy and Filter By Insurer
     ...    Get Policy Name whoes claim settlement is less than 90%
     ...    Get Policy Name whoes premiun amount is morethan 2% of cover amount
     Launch Browser and Navigate to URL    ${URL}    ${BROWSER_NAME}
-    ${policy_data}=    Read TestData From Excel    TC_02    policy
+    ${policy_data}=    Read TestData From Excel    TC_02    health_policy
     Create a Health Policy    ${policy_data}
     Wait for Policy Results to displayed
     ${policy_results}    CustomLibrary.Get Health Policy Results
@@ -32,6 +32,12 @@ TC02 Quote For Health Policy and Filter By Insurer
     ${policy_results}    CustomLibrary.Get Health Policy Results
     Check the Filtered Insurance details are displayed    Manipal Cigna Health Insurance    ${policy_results}
 
+TC_03 Quote for Health Policy and Compare
+    Launch Browser and Navigate to URL    ${URL}    ${BROWSER_NAME}
+    ${policy_data}=    Read TestData From Excel    TC_03    health_policy
+    Create a Health Policy    ${policy_data}
+    Wait for Policy Results to displayed
+    
 TC04 Life Policy Filters
     Launch Browser and Navigate to URL    ${URL}    ${BROWSER_NAME}
     ${policy_data}=    Read TestData From Excel    TC_01    life_policy
