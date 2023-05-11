@@ -30,6 +30,12 @@ Update Dynamic Xpath
     ${new_locator}    Replace String    ${locator}    replaceText    ${text}
     [Return]    ${new_locator}
 
+Update Multiple Dynamic Xpath
+    [Arguments]    ${locator}    ${text1}    ${text2}
+    ${new_locator}    Replace String    ${locator}    replaceText1    ${text1}
+    ${new_locator}    Replace String    ${new_locator}    replaceText2    ${text2}
+    [Return]    ${new_locator}
+
 Select Checkbox
     [Arguments]    ${checkbox_name}
     ${loc_checkbox}    Update Dynamic Xpath    ${common.checkbox}    ${checkbox_name}
@@ -45,8 +51,3 @@ Read TestData From Excel
     Set Global Variable    ${test_prerequisite_data}
     [Return]    ${test_prerequisite_data}
 
-Update Multiple Dynamic Xpath
-    [Arguments]    ${locator}    ${text1}    ${text2}
-    ${new_locator}    Replace String    ${locator}    replaceText1    ${text1}
-    ${new_locator}    Replace String    ${new_locator}    replaceText2    ${text2}
-    [Return]    ${new_locator}
