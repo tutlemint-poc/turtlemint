@@ -6,3 +6,5 @@ ${MEDIUM_WAIT}    30s
 ${BROWSER_NAME}    gc
 ${TESTDATA_FOLDER}    ${EXECDIR}/TestData
 &{CLIENT_CODE}    CIGNA=Manipal Cigna Health Insurance    STAR=Star Health    DIGIT=Go Digit    MAXBUPAHEALTH=Niva Bupa Health Insurance    ORNT=Oriental    IFTO=Iffco Tokio    HDFC=HDFC Ergo    SBIG=SBI    RELIGARE=Care Health Insurance    RELI=Reliance    ADITYABIRLAHEALTH=Aditya Birla Health Insurance
+${DEFAULT_PAYMENT_FREQUENCY}    Yearly
+${INSURER}        Manipal Cigna Health Insurance

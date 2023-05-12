@@ -51,3 +51,11 @@ Read TestData From Excel
     Set Global Variable    ${test_prerequisite_data}
     [Return]    ${test_prerequisite_data}
 
+Convert displayed amount to integer
+    [Arguments]    ${amount}
+    ${amount}    Remove String    ${amount}    Buy Now for ₹
+    ${amount}    Remove String    ${amount}    ₹
+    ${amount}    Remove String    ${amount}    ,
+    ${amount}    Remove String    ${amount}    ${SPACE}
+    ${int_amount}    Convert To Integer    ${amount}
+    [Return]    ${int_amount}
