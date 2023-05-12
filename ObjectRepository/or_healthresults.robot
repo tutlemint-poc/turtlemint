@@ -9,3 +9,5 @@ ${healthresult.header.coveramount}    //button[@id="filterCover"]/span[contains(
 ${healthresult.pageheader}    resultPage
 ${healthresult.page.data.ready}    //div[@ng-repeat='pending in pendings']
 ${healthresult.page.filter.ready}    //div[contains(@data-ng-repeat,'result in healthResultObj') and @class='result-card-wrapper ng-scope ng-hide']
+${healthresult.checkbox.compare}    xpath=(//div[contains(@class,'compareCheck')])[replaceText]/input
+${healthresult.button.compare}    ComparePlans

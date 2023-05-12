@@ -305,3 +305,11 @@ class CustomLibrary(object):
                 print((part_num / whole_num) * 100)
                 percentage = round((part_num / whole_num) * 100)
                 return percentage
+        def convert_to_lakhs(self,amount):
+            amount = amount.replace("₹","").replace("Lakhs","").replace("Lacs","").strip()
+            if (len(amount)>0):
+                amount = float(amount)
+                amount = int(amount*100000)
+            else:
+                amount=0
+            return amount
