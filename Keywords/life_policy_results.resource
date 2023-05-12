@@ -12,23 +12,38 @@ Close Pop up Message
     Run Keyword If    ${status}==True    Click Element    ${liferesults.message}
 
 Get payment frequency from policy result
-    [Arguments]    ${payment_freq}
     Wait Until Element Is Visible    ${liferesults.header.paymentfrequency}    ${MEDIUM_WAIT}    Payment frequency is not displayed in life policy page
     ${payment_frequency}=    Get Text    ${liferesults.header.paymentfrequency}
-    Should Be Equal As Strings    ${payment_frequency}    ${payment_freq}
+    [Return]    ${payment_frequency}
 
 Get sum assured from policy result
-    [Arguments]    ${assured_amount}
     Wait Until Element Is Visible    ${liferesults.header.sumassured}    ${MEDIUM_WAIT}    Sum assured is not displayed is Life policy page
     ${sum_assured}=    Get Text    ${liferesults.header.sumassured}
-    ${new_sum_assured}=    Remove String    ${sum_assured}    ₹
-    Should Be Equal As Strings    ${new_sum_assured}    ${assured_amount}
+    ${sum_assured}    Remove String    ${sum_assured}    ₹
+    [Return]    ${sum_assured}
 
-Check premium amount
-    [Arguments]    ${select_riders}
+Check premium amount on selecting rider
+    [Arguments]    ${select_rider}
     Wait Until Element Is Visible    ${liferesults.header.premiumamount}    ${MEDIUM_WAIT}    Premium amount should be displayed in life policy page.
     ${premium_amount}=    Get Text    ${liferesults.header.premiumamount}
-    ${select_rider}=    Update Dynamic Xpath    ${liferesults.page.riders}    ${select_riders}
+    ${premium_amount}    Convert displayed amount to integer    ${premium_amount}
+    ${select_rider}=    Update Dynamic Xpath    ${liferesults.page.riders}    ${select_rider}
+    Wait Until Element Is Visible    ${select_rider}    ${MEDIUM_WAIT}    Check the rider is displayed to select
     Click Element    ${select_rider}
-    ${waiver_premium}=    Get Text    ${liferesults.header.premiumamount}
-    Run Keyword If    ${waiver_premium}>${premium_amount}    ${SHORT_WAIT}    premium amount incresed
+    Sleep    5s
+    Capture Page Screenshot
+    ${addon_premium}=    Get Text    ${liferesults.header.premiumamount}
+    ${addon_premium}    Convert displayed amount to integer    ${addon_premium}
+    Run Keyword If    ${addon_premium}<=${premium_amount}    FAIL    Premium amount not increased on selecting rider
+
+Click compare check box for given policy number
+    [Arguments]    ${displayed_policy_num}
+    ${new_compare_checkbox}    Update Dynamic Xpath    ${healthresult.checkbox.compare}    ${displayed_policy_num}
+    Click Element    ${new_compare_checkbox}
+
+Select Two Policies and click on compare button
+    [Arguments]    ${policy_num_1}    ${policy_num_2}
+    Click compare check box for given policy number    ${policy_num_1}
+    Click compare check box for given policy number    ${policy_num_2}
+    Click Element    ${healthresult.button.compare}
+    Wait Until Element Is Visible    ${healthcompare.pageheader}    ${LONG_WAIT}    Compare plan page is not displayed
