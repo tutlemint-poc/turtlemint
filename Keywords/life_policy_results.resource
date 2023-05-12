@@ -35,15 +35,3 @@ Check premium amount on selecting rider
     ${addon_premium}=    Get Text    ${liferesults.header.premiumamount}
     ${addon_premium}    Convert displayed amount to integer    ${addon_premium}
     Run Keyword If    ${addon_premium}<=${premium_amount}    FAIL    Premium amount not increased on selecting rider
-
-Click compare check box for given policy number
-    [Arguments]    ${displayed_policy_num}
-    ${new_compare_checkbox}    Update Dynamic Xpath    ${healthresult.checkbox.compare}    ${displayed_policy_num}
-    Click Element    ${new_compare_checkbox}
-
-Select Two Policies and click on compare button
-    [Arguments]    ${policy_num_1}    ${policy_num_2}
-    Click compare check box for given policy number    ${policy_num_1}
-    Click compare check box for given policy number    ${policy_num_2}
-    Click Element    ${healthresult.button.compare}
-    Wait Until Element Is Visible    ${healthcompare.pageheader}    ${LONG_WAIT}    Compare plan page is not displayed
