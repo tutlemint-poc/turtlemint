@@ -16,6 +16,8 @@ Select gender
     Wait Until Element Is Visible    ${health.pageheader.gender}    ${MEDIUM_WAIT}    Gender page is not displayed
     ${loc_gender}=    Update Dynamic Xpath    ${health.radiobtn.gender}    ${gender}
     Click Element    ${loc_gender}
+    ${status}    Run Keyword And Return Status    Wait Until Element Is Not Visible    ${loc_gender}    ${SHORT_WAIT}
+    Run Keyword If    ${status}==True    health_policy.Click on Next button
 
 Who would you like to insure
     [Arguments]    ${members_to_be_insured}    # enter members by semi colon separator. Self;Wife;Father;Mother;Son;Daughter;Husband

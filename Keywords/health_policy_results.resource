@@ -91,3 +91,15 @@ Get Policy Name whoes premiun amount is morethan 2% of cover amount
         Log    ${client_name} ${plan_name} has total premium more than 2 percent (${percentage}) of cover amount. Cover Amount:${cover_amount}, Total Premium: ${total_premium}    WARN
     END
     END
+
+Click compare check box for given policy number
+    [Arguments]    ${displayed_policy_num}
+    ${new_compare_checkbox}    Update Dynamic Xpath    ${healthresult.checkbox.compare}    ${displayed_policy_num}
+    Click Element    ${new_compare_checkbox}
+
+Select Two Policies and click on compare button
+    [Arguments]    ${policy_num_1}    ${policy_num_2}
+    Click compare check box for given policy number    ${policy_num_1}
+    Click compare check box for given policy number    ${policy_num_2}
+    Click Element    ${healthresult.button.compare}
+    Wait Until Element Is Visible    ${healthcompare.pageheader}    ${LONG_WAIT}    Compare plan page is not displayed
